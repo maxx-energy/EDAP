@@ -65,6 +65,9 @@ app.use('/auth', authRoutes);
 app.use('/dashboard', dashboardRoutes);
 app.use('/', indexRouter);
 
+app.listen(8080);
+console.log('Server is listening on port 8080');
+
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
     next(createError(404));
