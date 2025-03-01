@@ -1,56 +1,354 @@
-<? if (isUserSignedIn) { ?>
-<%- include('../dashboardPartials/_dashboardHeader.ejs') %>
+<% if (isUserSignedIn) { %>
+  <%- include('../dashboardPartials/_dashboardHeader.ejs') %>
 
-    <div class="container mt-5">
-        <h1 class="mb-4 text-center">Your Account Settings</h1>
-        <form id="profileForm">
-            <div class="row g-4 align-items-center">
-                <!-- Left Column: Profile Fields -->
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="firstName" class="form-label">First Name</label>
-                        <input type="text" class="form-control" id="firstName" name="firstName"
-                            value="<%= user.first_name %>" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="lastName" class="form-label">Last Name</label>
-                        <input type="text" class="form-control" id="lastName" name="lastName"
-                            value="<%= user.last_name %>" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" value="<%= user.email %>" disabled>
-                    </div>
-                    <hr>
-                    <div class="mb-3">
-                        <label for="currentPassword" class="form-label">Current Password</label>
-                        <input type="password" class="form-control" id="currentPassword" name="currentPassword"
-                            placeholder="********">
-                    </div>
-                    <div class="mb-3">
-                        <label for="newPassword" class="form-label">New Password</label>
-                        <input type="password" class="form-control" id="newPassword" name="newPassword"
-                            placeholder="********">
-                    </div>
-                    <div class="mb-3">
-                        <label for="confirmPassword" class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
-                            placeholder="********">
-                    </div>
-                    <button type="submit" class="btn btn-primary w-100 mt-3">Save Changes</button>
-                </div>
+  <!-- Ensure Bootstrap Icons are loaded -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
-                <!-- Right Column: Profile Picture -->
-                <div class="col-md-6 text-center">
-                    <!-- Profile Picture (Clickable) -->
-                    <img src="https://picsum.photos/200/200" alt="Profile Picture"
-                        class="img-thumbnail rounded-circle mb-3" id="profilePicPreview" style="cursor: pointer;">
-                    <!-- Hidden File Input -->
-                    <input type="file" class="form-control d-none" id="profilePic" name="profilePic" accept="image/*">
-                </div>
+  <style>
+    /* Flush container */
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+    .flush-container {
+      margin: 0;
+      padding: 0;
+    }
+    .flush-header {
+      background: #fff;
+      padding: 1rem 0;
+    }
+    /* Card styling: minimal and flush */
+    .profile-card {
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    /* Input transitions for smooth enabling/disabling */
+    .form-control {
+      transition: background 0.3s, border-color 0.3s;
+    }
+    /* Success Overlay */
+    #successOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 2rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s, visibility 0.5s;
+      z-index: 9999;
+    }
+    /* Error message styling */
+    .invalid-feedback {
+      display: none;
+      color: red;
+      font-size: 0.875rem;
+    }
+    .is-invalid + .invalid-feedback {
+      display: block;
+    }
+    /* Email field styling to indicate it's always locked */
+    #email {
+      background-color: #f8f9fa;
+      cursor: not-allowed;
+    }
+  </style>
+
+  <!-- Flush container with minimal padding -->
+  <div class="container-fluid flush-container p-0">
+    <h1 class="text-center my-3">Your Account Settings</h1>
+
+    <!-- Center the card -->
+    <div class="row justify-content-center mx-0">
+      <div class="col-md-8 px-0">
+        <!-- Card with flush design -->
+        <div class="card profile-card">
+          <!-- Card Header: Profile Pic, Name, and Edit/Save Button -->
+          <div class="card-header text-center position-relative border-0" style="background: transparent;">
+            <!-- Profile Picture -->
+            <img
+              src="<%= user.profilePic || 'https://picsum.photos/200/300' %>"
+              alt="Profile Picture"
+              class="rounded-circle"
+              id="profilePicPreview"
+              style="width: 120px; height: 120px; object-fit: cover; cursor: pointer;"
+              aria-label="Profile Picture"
+            >
+            <!-- Displayed User Name -->
+            <div id="userNameDisplay" style="margin-top: 10px; font-size: 1.25rem; font-weight: 600; text-transform: capitalize;">
+              <%= user.first_name %> <%= user.last_name %>
             </div>
-        </form>
-    </div>
+            <!-- Edit / Save Button -->
+            <button
+              id="toggleEditBtn"
+              class="btn btn-primary position-absolute"
+              style="top: 10px; right: 10px;"
+              aria-label="Edit Profile"
+            >
+              Edit
+            </button>
+          </div>
 
-    <%- include('../dashboardPartials/_dashboardFooter.ejs') %>
-        <? } ?>
+          <!-- Card Body: Single Column of Fields -->
+          <div class="card-body">
+            <form id="profileForm" novalidate>
+              <!-- First Name -->
+              <div class="mb-3">
+                <label for="firstName" class="form-label">First Name</label>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  class="form-control"
+                  value="<%= user.first_name %>"
+                  disabled
+                  required
+                  style="text-transform: capitalize;"
+                >
+                <div id="firstNameError" class="invalid-feedback">First name is required.</div>
+              </div>
+              <!-- Last Name -->
+              <div class="mb-3">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  class="form-control"
+                  value="<%= user.last_name %>"
+                  disabled
+                  required
+                  style="text-transform: capitalize;"
+                >
+                <div id="lastNameError" class="invalid-feedback">Last name is required.</div>
+              </div>
+              <!-- Email -->
+              <div class="mb-3">
+                <label for="email" class="form-label">Email <small class="text-muted">(Cannot be changed)</small></label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-control"
+                  value="<%= user.email %>"
+                  disabled
+                  required
+                  readonly
+                >
+                <div id="emailError" class="invalid-feedback">Please enter a valid email.</div>
+              </div>
+              <!-- Current Password with Toggle -->
+              <div class="mb-3">
+                <label for="currentPassword" class="form-label">Current Password</label>
+                <div class="input-group">
+                  <input
+                    type="password"
+                    id="currentPassword"
+                    name="currentPassword"
+                    class="form-control"
+                    placeholder="********"
+                    readonly
+                  >
+                  <span
+                    class="input-group-text"
+                    style="cursor: pointer;"
+                    onclick="togglePassword('currentPassword', this)"
+                    aria-label="Toggle current password visibility"
+                  >
+                    <i class="bi bi-eye-fill"></i>
+                  </span>
+                </div>
+              </div>
+              <!-- New Password with Toggle -->
+              <div class="mb-3">
+                <label for="newPassword" class="form-label">New Password</label>
+                <div class="input-group">
+                  <input
+                    type="password"
+                    id="newPassword"
+                    name="newPassword"
+                    class="form-control"
+                    placeholder="********"
+                    readonly
+                  >
+                  <span
+                    class="input-group-text"
+                    style="cursor: pointer;"
+                    onclick="togglePassword('newPassword', this)"
+                    aria-label="Toggle new password visibility"
+                  >
+                    <i class="bi bi-eye-fill"></i>
+                  </span>
+                </div>
+              </div>
+              <!-- Confirm Password with Toggle -->
+              <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <div class="input-group">
+                  <input
+                    type="password"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    class="form-control"
+                    placeholder="********"
+                    readonly
+                  >
+                  <span
+                    class="input-group-text"
+                    style="cursor: pointer;"
+                    onclick="togglePassword('confirmPassword', this)"
+                    aria-label="Toggle confirm password visibility"
+                  >
+                    <i class="bi bi-eye-fill"></i>
+                  </span>
+                </div>
+                <div id="passwordError" class="invalid-feedback">New password and confirm password do not match.</div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden File Input for Profile Picture Update -->
+  <input type="file" id="profilePicInput" accept="image/*" style="display: none;">
+
+  <!-- Success Overlay -->
+  <div id="successOverlay">
+    Changes Saved!
+  </div>
+
+  <%- include('../dashboardPartials/_dashboardFooter.ejs') %>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Inline Editing, Validation, and Toggle Password Script -->
+  <script>
+    let editingMode = false;
+    const toggleEditBtn = document.getElementById('toggleEditBtn');
+    const formInputs = document.querySelectorAll('#profileForm input');
+    const userNameDisplay = document.getElementById('userNameDisplay');
+    const emailField = document.getElementById('email');
+
+    // Utility: Email validation function
+    function isValidEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+
+    // Clear validation error classes/messages
+    function clearValidation() {
+      document.getElementById('firstName').classList.remove('is-invalid');
+      document.getElementById('lastName').classList.remove('is-invalid');
+      document.getElementById('email').classList.remove('is-invalid');
+      document.getElementById('confirmPassword').classList.remove('is-invalid');
+    }
+
+    // Toggle editing mode on button click
+    toggleEditBtn.addEventListener('click', () => {
+      if (!editingMode) {
+        // Enable editing: remove readonly for password fields; enable text fields
+        editingMode = true;
+        toggleEditBtn.textContent = 'Save Changes';
+        formInputs.forEach(input => {
+          // Skip the email field - it should always remain disabled
+          if (input.id === 'email') {
+            return;
+          }
+          
+          if (input.type === 'password') {
+            input.removeAttribute('readonly');
+          } else {
+            input.disabled = false;
+          }
+        });
+      } else {
+        // Client-side validation
+        clearValidation();
+        let valid = true;
+        const firstName = document.getElementById('firstName').value.trim();
+        const lastName = document.getElementById('lastName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const newPassword = document.getElementById('newPassword').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+
+        if (!firstName) {
+          document.getElementById('firstName').classList.add('is-invalid');
+          valid = false;
+        }
+        if (!lastName) {
+          document.getElementById('lastName').classList.add('is-invalid');
+          valid = false;
+        }
+        if (!isValidEmail(email)) {
+          document.getElementById('email').classList.add('is-invalid');
+          valid = false;
+        }
+        if (newPassword !== confirmPassword) {
+          document.getElementById('confirmPassword').classList.add('is-invalid');
+          valid = false;
+        }
+        if (!valid) return;
+
+        // Save changes: update displayed name and re-lock fields
+        userNameDisplay.textContent = firstName + ' ' + lastName;
+        // (Optional) Send updated data to your server here...
+        formInputs.forEach(input => {
+          if (input.type === 'password') {
+            input.setAttribute('readonly', true);
+          } else {
+            input.disabled = true;
+          }
+        });
+        editingMode = false;
+        toggleEditBtn.textContent = 'Edit';
+
+        // Show success overlay
+        const overlay = document.getElementById('successOverlay');
+        overlay.style.opacity = 1;
+        overlay.style.visibility = 'visible';
+        setTimeout(() => {
+          overlay.style.opacity = 0;
+          overlay.style.visibility = 'hidden';
+        }, 2000);
+      }
+    });
+
+    // Profile Picture Update: allow file selection only when in edit mode
+    const profilePicPreview = document.getElementById('profilePicPreview');
+    const profilePicInput = document.getElementById('profilePicInput');
+    profilePicPreview.addEventListener('click', () => {
+      if (editingMode) {
+        profilePicInput.click();
+      }
+    });
+    profilePicInput.addEventListener('change', event => {
+      const [file] = event.target.files;
+      if (file) {
+        profilePicPreview.src = URL.createObjectURL(file);
+      }
+    });
+
+    // Toggle password visibility function (updates icon as well)
+    function togglePassword(inputId, iconSpan) {
+      const input = document.getElementById(inputId);
+      if (input.type === 'password') {
+        input.type = 'text';
+        iconSpan.innerHTML = '<i class="bi bi-eye-slash-fill"></i>';
+      } else {
+        input.type = 'password';
+        iconSpan.innerHTML = '<i class="bi bi-eye-fill"></i>';
+      }
+    }
+  </script>
+<% } %>

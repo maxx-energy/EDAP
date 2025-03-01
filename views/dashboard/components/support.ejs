@@ -1,198 +1,619 @@
-<? if (isUserSignedIn) { ?>
-<%- include('../dashboardPartials/_dashboardHeader.ejs') %>
-
-    <div class="container mt-5 table-responsive">
-        </style>
-        </head>
-
-        <body>
-            <!-- Main Content Area -->
-            <div class="container">
-                <h1 class="mb-4 text-center">Support Center</h1>
-
-                <!-- Navigation Tabs -->
-                <ul class="nav nav-tabs mb-4" id="supportTab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="tickets-tab" data-bs-toggle="tab" data-bs-target="#tickets"
-                            type="button" role="tab" aria-controls="tickets" aria-selected="true">
-                            Tickets
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="create-tab" data-bs-toggle="tab" data-bs-target="#create"
-                            type="button" role="tab" aria-controls="create" aria-selected="false">
-                            Create Ticket
-                        </button>
-                    </li>
+<% if (isUserSignedIn) { %>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Jira Ticketing System</title>
+    
+      <!-- Bootstrap CSS -->
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      />
+      <!-- Bootstrap Icons -->
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      />
+      <!-- Google Font (Poppins) -->
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      />
+    
+      <style>
+        /* Keep flush, no color changes */
+        html, body {
+          margin: 0;
+          padding: 0;
+          font-family: 'Poppins', sans-serif;
+          background: linear-gradient(135deg, #f8f8f8, #fffefe, #eeeeee);
+          background-size: 400% 400%;
+          animation: gradientShift 15s ease infinite;
+          /* Fade in entire page */
+          opacity: 0;
+          animation: fadeInPage 0.8s forwards ease-in-out;
+        }
+        @keyframes gradientShift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        @keyframes fadeInPage {
+          to { opacity: 1; }
+        }
+    
+        .container-fluid {
+          margin: 0; 
+          padding: 0;
+        }
+        h1 {
+          margin: 1rem 0;
+          text-align: center;
+          color: #333;
+        }
+    
+        /* Card styling for a modern look */
+        .card {
+          border: none;
+          border-radius: 0;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+          margin: 0;
+        }
+    
+        /* Table styling */
+        .table thead th {
+          background-color: #f0f0f0;
+          border-bottom: 2px solid #ccc;
+        }
+        .table-hover tbody tr:hover {
+          background-color: rgba(0, 0, 0, 0.05);
+          transition: background-color 0.3s;
+        }
+    
+        /* Pagination styling */
+        .pagination { 
+          justify-content: center; 
+          margin-bottom: 1rem;
+        }
+    
+        /* Buttons: subtle bounce on hover */
+        button.btn {
+          transition: transform 0.2s, box-shadow 0.2s;
+        }
+        button.btn:hover {
+          transform: scale(1.05);
+          box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+    
+        /* Success Overlay: fade in/out */
+        #successOverlay {
+          position: fixed;
+          top: 0; left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0,0,0,0.7);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #fff;
+          font-size: 2rem;
+          opacity: 0;
+          visibility: hidden;
+          transition: opacity 0.5s, visibility 0.5s;
+          z-index: 9999;
+        }
+    
+        /* Validation error styling */
+        .invalid-feedback {
+          display: none;
+          color: red;
+          font-size: 0.875rem;
+        }
+        .is-invalid + .invalid-feedback {
+          display: block;
+        }
+    
+        /* Adjust input transitions */
+        .form-control {
+          transition: background 0.3s, border-color 0.3s;
+        }
+    
+        /* Nav tabs: subtle scale on hover */
+        .nav-tabs .nav-link {
+          transition: transform 0.2s;
+        }
+        .nav-tabs .nav-link:hover {
+          transform: scale(1.03);
+        }
+      </style>
+    </head>
+    <body>
+      <!-- Flush Header Partial -->
+      <%- include('../dashboardPartials/_dashboardHeader.ejs') %>
+    
+      <!-- Main Flush Container -->
+      <div class="container-fluid">
+        <h1 class="text-center">Jira Ticketing System</h1>
+    
+        <!-- Navigation Tabs -->
+        <ul class="nav nav-tabs mb-4" id="supportTab" role="tablist" style="margin: 0;">
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active"
+              id="tickets-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#tickets"
+              type="button"
+              role="tab"
+              aria-controls="tickets"
+              aria-selected="true"
+            >
+              Tickets
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="create-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#create"
+              type="button"
+              role="tab"
+              aria-controls="create"
+              aria-selected="false"
+            >
+              Create Ticket
+            </button>
+          </li>
+        </ul>
+    
+        <!-- Tab Content -->
+        <div class="tab-content" id="supportTabContent">
+          <!-- Tickets Tab -->
+          <div
+            class="tab-pane fade show active"
+            id="tickets"
+            role="tabpanel"
+            aria-labelledby="tickets-tab"
+          >
+            <div class="container-fluid p-0">
+              <div class="d-flex justify-content-end p-2">
+                <input
+                  type="text"
+                  id="ticketSearch"
+                  class="form-control w-25"
+                  placeholder="Search Tickets"
+                />
+              </div>
+              <div class="table-responsive">
+                <table
+                  class="table table-hover align-middle mb-0"
+                  id="ticketsTable"
+                >
+                  <thead>
+                    <tr>
+                      <th>Ticket ID</th>
+                      <th>Subject</th>
+                      <th>Priority</th>
+                      <th>Status</th>
+                      <th>Last Updated</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- Tickets rendered by JS -->
+                  </tbody>
+                </table>
+              </div>
+              <!-- Pagination Controls -->
+              <nav class="mt-3">
+                <ul class="pagination" id="pagination">
+                  <!-- Pagination items generated by JS -->
                 </ul>
-
-                <!-- Tab Content -->
-                <div class="tab-content" id="supportTabContent">
-                    <!-- Tickets Tab -->
-                    <div class="tab-pane fade show active" id="tickets" role="tabpanel" aria-labelledby="tickets-tab">
-                        <div class="mb-3 d-flex justify-content-end">
-                            <input type="text" id="ticketSearch" class="form-control ticket-search"
-                                placeholder="Search Tickets" />
-                        </div>
-                        <div class="card modern-card">
-                            <div class="modern-card-header">
-                                <h6>Open Tickets</h6>
-                            </div>
-                            <div class="modern-card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-hover align-middle mb-0" id="ticketsTable">
-                                        <thead>
-                                            <tr>
-                                                <th>Ticket ID</th>
-                                                <th>Subject</th>
-                                                <th>Priority</th>
-                                                <th>Status</th>
-                                                <th>Last Updated</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>#1001</td>
-                                                <td>Login Issue</td>
-                                                <td><span class="badge bg-danger">High</span></td>
-                                                <td><span class="badge bg-info">Open</span></td>
-                                                <td>2025-02-22</td>
-                                                <td>
-                                                    <button class="btn btn-sm btn-outline-secondary view-ticket"
-                                                        data-id="#1001" data-subject="Login Issue"
-                                                        data-description="User is having login problems due to invalid credentials."
-                                                        data-priority="High" data-status="Open"
-                                                        data-updated="2025-02-22">
-                                                        View
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>#1002</td>
-                                                <td>Billing Inquiry</td>
-                                                <td><span class="badge bg-warning">Medium</span></td>
-                                                <td><span class="badge bg-info">Open</span></td>
-                                                <td>2025-02-20</td>
-                                                <td>
-                                                    <button class="btn btn-sm btn-outline-secondary view-ticket"
-                                                        data-id="#1002" data-subject="Billing Inquiry"
-                                                        data-description="Need clarification on the last invoice charges."
-                                                        data-priority="Medium" data-status="Open"
-                                                        data-updated="2025-02-20">
-                                                        View
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <!-- Additional rows can be added dynamically -->
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Create Ticket Tab -->
-                    <div class="tab-pane fade" id="create" role="tabpanel" aria-labelledby="create-tab">
-                        <div class="card modern-card">
-                            <div class="modern-card-header">
-                                <h6>Create a New Ticket</h6>
-                            </div>
-                            <div class="modern-card-body">
-                                <form id="ticketForm">
-                                    <div class="mb-3">
-                                        <label for="ticketSubject" class="form-label">Subject</label>
-                                        <input type="text" class="form-control" id="ticketSubject"
-                                            placeholder="Enter ticket subject" required />
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="ticketDescription" class="form-label">Description</label>
-                                        <textarea class="form-control" id="ticketDescription" rows="4"
-                                            placeholder="Describe your issue..." required></textarea>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="ticketPriority" class="form-label">Priority</label>
-                                        <select class="form-select" id="ticketPriority" required>
-                                            <option value="" disabled selected>Select priority</option>
-                                            <option value="Low">Low</option>
-                                            <option value="Medium">Medium</option>
-                                            <option value="High">High</option>
-                                        </select>
-                                    </div>
-                                    <div class="text-end">
-                                        <button type="submit" class="btn btn-primary">Submit Ticket</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </nav>
             </div>
-
-            <!-- Ticket Detail Modal -->
-            <div class="modal fade" id="ticketModal" tabindex="-1" aria-labelledby="ticketModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="ticketModalLabel">Ticket Details</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <p><strong>Ticket ID:</strong> <span id="modalTicketId"></span></p>
-                            <p><strong>Subject:</strong> <span id="modalTicketSubject"></span></p>
-                            <p><strong>Description:</strong></p>
-                            <p id="modalTicketDescription"></p>
-                            <p><strong>Priority:</strong> <span id="modalTicketPriority"></span></p>
-                            <p><strong>Status:</strong> <span id="modalTicketStatus"></span></p>
-                            <p><strong>Last Updated:</strong> <span id="modalTicketUpdated"></span></p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Update Ticket</button>
-                        </div>
-                    </div>
+          </div>
+    
+          <!-- Create Ticket Tab -->
+          <div
+            class="tab-pane fade"
+            id="create"
+            role="tabpanel"
+            aria-labelledby="create-tab"
+          >
+            <div class="container-fluid p-0">
+              <div class="card">
+                <div class="card-header">
+                  <h6>Create a New Ticket</h6>
                 </div>
+                <div class="card-body">
+                  <form id="ticketForm">
+                    <div class="mb-3">
+                      <label for="ticketSubject" class="form-label"
+                        >Subject</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="ticketSubject"
+                        placeholder="Enter ticket subject"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="ticketDescription" class="form-label"
+                        >Description</label
+                      >
+                      <textarea
+                        class="form-control"
+                        id="ticketDescription"
+                        rows="4"
+                        placeholder="Describe your issue..."
+                        required
+                      ></textarea>
+                    </div>
+                    <div class="mb-3">
+                      <label for="ticketPriority" class="form-label"
+                        >Priority</label
+                      >
+                      <select class="form-select" id="ticketPriority" required>
+                        <option value="" disabled selected>Select priority</option>
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                      </select>
+                    </div>
+                    <div class="text-end">
+                      <button type="submit" class="btn btn-primary">
+                        Submit Ticket
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
             </div>
-
-            <!-- Bootstrap JS and Script -->
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-            <script>
-                // Search functionality for tickets
-                document.getElementById('ticketSearch').addEventListener('input', function () {
-                    const query = this.value.toLowerCase();
-                    document.querySelectorAll('#ticketsTable tbody tr').forEach(row => {
-                        row.style.display = row.textContent.toLowerCase().includes(query) ? '' : 'none';
-                    });
-                });
-
-                // Ticket Detail Modal functionality
-                const modal = new bootstrap.Modal(document.getElementById('ticketModal'));
-                document.querySelectorAll('.view-ticket').forEach(button => {
-                    button.addEventListener('click', function () {
-                        document.getElementById('modalTicketId').textContent = this.dataset.id;
-                        document.getElementById('modalTicketSubject').textContent = this.dataset.subject;
-                        document.getElementById('modalTicketDescription').textContent = this.dataset.description;
-                        document.getElementById('modalTicketPriority').textContent = this.dataset.priority;
-                        document.getElementById('modalTicketStatus').textContent = this.dataset.status;
-                        document.getElementById('modalTicketUpdated').textContent = this.dataset.updated;
-                        modal.show();
-                    });
-                });
-
-                // Dummy Ticket Form Submission
-                document.getElementById('ticketForm').addEventListener('submit', function (e) {
-                    e.preventDefault();
-                    alert('Ticket submitted successfully!');
-                    this.reset();
-                });
-            </script>
-
-
-
-
-
-
-    </div>
-    <%- include('../dashboardPartials/_dashboardFooter.ejs') %>
-    <? } ?>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Ticket Detail Modal -->
+      <div
+        class="modal fade"
+        id="ticketModal"
+        tabindex="-1"
+        aria-labelledby="ticketModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="ticketModalLabel">Ticket Details</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <p>
+                <strong>Ticket ID:</strong>
+                <span id="modalTicketId"></span>
+              </p>
+              <p>
+                <strong>Subject:</strong>
+                <span id="modalTicketSubject"></span>
+              </p>
+              <p><strong>Description:</strong></p>
+              <p id="modalTicketDescription"></p>
+              <p>
+                <strong>Priority:</strong>
+                <span id="modalTicketPriority"></span>
+              </p>
+              <p>
+                <strong>Status:</strong>
+                <span id="modalTicketStatus"></span>
+              </p>
+              <p>
+                <strong>Last Updated:</strong>
+                <span id="modalTicketUpdated"></span>
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary">Update Ticket</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Success Overlay -->
+      <div id="successOverlay">Changes Saved!</div>
+    
+      <!-- Hidden File Input for Profile Picture Update -->
+      <input type="file" id="profilePicInput" accept="image/*" style="display: none;" />
+    
+      <!-- Flush Footer Partial -->
+      <%- include('../dashboardPartials/_dashboardFooter.ejs') %>
+    
+      <!-- Bootstrap JS Bundle -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+      <script>
+        /***********************
+         * Tickets & Pagination
+         ***********************/
+        let tickets = [];
+        const TICKETS_PER_PAGE = 10;
+        const TOTAL_TICKETS = 300; // 30 pages
+        const paginationEl = document.getElementById('pagination');
+        const ticketsTableBody = document.querySelector('#ticketsTable tbody');
+    
+        // Load tickets from localStorage or generate dummy tickets
+        if (localStorage.getItem('tickets')) {
+          tickets = JSON.parse(localStorage.getItem('tickets'));
+        } else {
+          for (let i = 1; i <= TOTAL_TICKETS; i++) {
+            tickets.push({
+              id: 1000 + i,
+              subject: `Ticket Subject ${i}`,
+              priority: i % 3 === 0 ? 'High' : i % 3 === 1 ? 'Medium' : 'Low',
+              status: i % 2 === 0 ? 'Open' : 'Closed',
+              updated: new Date().toISOString().slice(0, 10),
+              description: `Description for ticket ${i}.`
+            });
+          }
+          localStorage.setItem('tickets', JSON.stringify(tickets));
+        }
+    
+        let currentPage = 1;
+        let totalPages = Math.ceil(tickets.length / TICKETS_PER_PAGE);
+    
+        function renderTickets(page) {
+          ticketsTableBody.innerHTML = '';
+          const start = (page - 1) * TICKETS_PER_PAGE;
+          const end = start + TICKETS_PER_PAGE;
+          const pageTickets = tickets.slice(start, end);
+          pageTickets.forEach((ticket) => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+              <td>#${ticket.id}</td>
+              <td>${ticket.subject}</td>
+              <td>
+                <span class="badge ${
+                  ticket.priority === 'High'
+                    ? 'bg-danger'
+                    : ticket.priority === 'Medium'
+                    ? 'bg-warning'
+                    : 'bg-success'
+                }">${ticket.priority}</span>
+              </td>
+              <td>
+                <span class="badge ${
+                  ticket.status === 'Open' ? 'bg-info' : 'bg-secondary'
+                }">${ticket.status}</span>
+              </td>
+              <td>${ticket.updated}</td>
+              <td>
+                <button
+                  class="btn btn-sm btn-outline-secondary view-ticket"
+                  data-id="#${ticket.id}"
+                  data-subject="${ticket.subject}"
+                  data-description="${ticket.description}"
+                  data-priority="${ticket.priority}"
+                  data-status="${ticket.status}"
+                  data-updated="${ticket.updated}"
+                >
+                  View
+                </button>
+              </td>
+            `;
+            ticketsTableBody.appendChild(tr);
+          });
+          attachModalEvents();
+        }
+    
+        /***********************
+         * Ellipsis Pagination
+         ***********************/
+        function generatePagination(current, total) {
+          const pages = [];
+    
+          // "Previous"
+          pages.push({
+            text: '«',
+            page: Math.max(1, current - 1),
+            disabled: current === 1
+          });
+    
+          // Show at most 2 pages at the start, 2 at the end, 2 around current
+          const pageLinksToShow = 2;
+    
+          // Page 1
+          pages.push({
+            text: '1',
+            page: 1,
+            active: current === 1
+          });
+    
+          // Ellipsis after page 1 if needed
+          if (current > pageLinksToShow + 2) {
+            pages.push({ ellipsis: true });
+          }
+    
+          // Middle range
+          const start = Math.max(2, current - pageLinksToShow);
+          const end = Math.min(total - 1, current + pageLinksToShow);
+          for (let i = start; i <= end; i++) {
+            pages.push({
+              text: i.toString(),
+              page: i,
+              active: current === i
+            });
+          }
+    
+          // Ellipsis before the last page if needed
+          if (current < total - (pageLinksToShow + 1)) {
+            pages.push({ ellipsis: true });
+          }
+    
+          // Last page
+          if (total > 1) {
+            pages.push({
+              text: total.toString(),
+              page: total,
+              active: current === total
+            });
+          }
+    
+          // "Next"
+          pages.push({
+            text: '»',
+            page: Math.min(total, current + 1),
+            disabled: current === total
+          });
+    
+          return pages;
+        }
+    
+        function renderPagination(current, total) {
+          const pages = generatePagination(current, total);
+          paginationEl.innerHTML = '';
+    
+          pages.forEach((p) => {
+            const li = document.createElement('li');
+            li.classList.add('page-item');
+    
+            if (p.disabled) li.classList.add('disabled');
+            if (p.active) li.classList.add('active');
+    
+            if (p.ellipsis) {
+              li.innerHTML = `<span class="page-link">…</span>`;
+              paginationEl.appendChild(li);
+              return;
+            }
+    
+            li.innerHTML = `<button class="page-link">${p.text}</button>`;
+            li.addEventListener('click', () => {
+              if (!p.disabled && !p.active && !p.ellipsis) {
+                currentPage = p.page;
+                renderTickets(currentPage);
+                renderPagination(currentPage, totalPages);
+              }
+            });
+            paginationEl.appendChild(li);
+          });
+        }
+    
+        // Initial render
+        renderTickets(currentPage);
+        renderPagination(currentPage, totalPages);
+    
+        // Ticket search
+        document.getElementById('ticketSearch')?.addEventListener('input', function () {
+          const query = this.value.toLowerCase();
+          const filteredTickets = tickets.filter(
+            (ticket) =>
+              ticket.subject.toLowerCase().includes(query) ||
+              ticket.id.toString().toLowerCase().includes(query)
+          );
+          ticketsTableBody.innerHTML = '';
+          filteredTickets.forEach((ticket) => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+              <td>#${ticket.id}</td>
+              <td>${ticket.subject}</td>
+              <td>
+                <span class="badge ${
+                  ticket.priority === 'High'
+                    ? 'bg-danger'
+                    : ticket.priority === 'Medium'
+                    ? 'bg-warning'
+                    : 'bg-success'
+                }">${ticket.priority}</span>
+              </td>
+              <td>
+                <span class="badge ${
+                  ticket.status === 'Open' ? 'bg-info' : 'bg-secondary'
+                }">${ticket.status}</span>
+              </td>
+              <td>${ticket.updated}</td>
+              <td>
+                <button
+                  class="btn btn-sm btn-outline-secondary view-ticket"
+                  data-id="#${ticket.id}"
+                  data-subject="${ticket.subject}"
+                  data-description="${ticket.description}"
+                  data-priority="${ticket.priority}"
+                  data-status="${ticket.status}"
+                  data-updated="${ticket.updated}"
+                >
+                  View
+                </button>
+              </td>
+            `;
+            ticketsTableBody.appendChild(tr);
+          });
+          attachModalEvents();
+          paginationEl.style.display = query ? 'none' : 'flex';
+        });
+    
+        // Attach modal events (for new rows, e.g. after search or page change)
+        function attachModalEvents() {
+          const ticketModalEl = document.getElementById('ticketModal');
+          const ticketModal = new bootstrap.Modal(ticketModalEl);
+          document.querySelectorAll('.view-ticket').forEach((button) => {
+            button.addEventListener('click', function () {
+              document.getElementById('modalTicketId').textContent = this.dataset.id;
+              document.getElementById('modalTicketSubject').textContent = this.dataset.subject;
+              document.getElementById('modalTicketDescription').textContent = this.dataset.description;
+              document.getElementById('modalTicketPriority').textContent = this.dataset.priority;
+              document.getElementById('modalTicketStatus').textContent = this.dataset.status;
+              document.getElementById('modalTicketUpdated').textContent = this.dataset.updated;
+              ticketModal.show();
+            });
+          });
+        }
+    
+        // Ticket Form Submission
+        document.getElementById('ticketForm')?.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const subject = document.getElementById('ticketSubject').value.trim();
+          const description = document.getElementById('ticketDescription').value.trim();
+          const priority = document.getElementById('ticketPriority').value;
+          if (!subject || !description || !priority) {
+            alert('Please fill in all fields.');
+            return;
+          }
+          const newTicket = {
+            id: tickets.length ? tickets[tickets.length - 1].id + 1 : 1001,
+            subject: subject,
+            description: description,
+            priority: priority,
+            status: 'Open',
+            updated: new Date().toISOString().slice(0, 10)
+          };
+          tickets.push(newTicket);
+          localStorage.setItem('tickets', JSON.stringify(tickets));
+          currentPage = totalPages = Math.ceil(tickets.length / TICKETS_PER_PAGE);
+          renderTickets(currentPage);
+          renderPagination(currentPage, totalPages);
+          alert('Ticket submitted successfully!');
+          this.reset();
+          // Switch to Tickets tab
+          const tabTrigger = new bootstrap.Tab(document.querySelector('#tickets-tab'));
+          tabTrigger.show();
+        });
+      </script>
+    </body>
+    </html>
+    <% } %>
+    
