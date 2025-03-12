@@ -1,77 +1,407 @@
 <%- include('partials/_header.ejs') %>
-    <%- include('partials/_navigator.ejs') %>
+<%- include('partials/_navigator.ejs') %>
 
-        <div class="container mt-5 pt-4">
-            <!-- Our Mission Section -->
-            <div class="row align-items-center mb-5">
-                <div class="col-md-6">
-                    <img class="img-fluid rounded shadow-lg"
-                        src="https://media.istockphoto.com/id/1452736789/photo/mature-man-helps-younger-man-verbalize-problems-in-therapy.jpg?s=612x612&w=0&k=20&c=sLU2wcEE-TLYYPjYXfXThoBcafbNGU3n7DUzPF1FOwc="
-                        alt="Our Mission">
-                </div>
-                <div class="col-md-6">
-                    <div class="p-4">
-                        <h1 class="mb-3 text-secondary fw-bold">Our Mission</h1>
-                        <p class="lead text-muted">
-                            At Maxx Energy, our mission is to power a sustainable future by harnessing the limitless
-                            energy of the sun.
-                            We are committed to delivering innovative solar solutions that reduce environmental impact,
-                            empower communities,
-                            and promote energy independence. Through cutting-edge technology and exceptional service, we
-                            are transforming
-                            the way the world accesses and uses renewable energy.
-                        </p>
-                    </div>
+<div class="hero-section bg-gradient-primary text-white py-5 mb-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-3 fw-bold mb-3">Powering Tomorrow's World Today</h1>
+                <p class="lead fs-4 mb-4">Maxx Energy is revolutionizing how we harness and utilize solar energy for a sustainable future.</p>
+                <div class="d-flex gap-3">
+                    <a href="#mission" class="btn btn-light btn-lg px-4">Our Story</a>
+                    <a href="/contact" class="btn btn-outline-light btn-lg px-4">Get in Touch</a>
                 </div>
             </div>
+            <div class="col-lg-6 d-none d-lg-block">
+                <img src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=1600&auto=format&fit=crop&q=60" 
+                     class="img-fluid rounded-circle shadow-lg" alt="Solar Energy">
+            </div>
+        </div>
+    </div>
+</div>
 
-            <!-- What We Do Section -->
-            <div class="row align-items-center mb-5">
-                <div class="col-md-6 order-md-2">
-                    <img class="img-fluid rounded shadow-lg"
-                        src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1600&auto=format&fit=crop&q=60"
-                        alt="What We Do">
-                </div>
-                <div class="col-md-6 order-md-1">
-                    <div class="p-4">
-                        <h1 class="mb-3 text-secondary fw-bold">What We Do</h1>
-                        <p class="lead text-muted">
-                            We offer comprehensive solar energy solutions tailored for residential, commercial, and
-                            community projects.
-                            From expert consultation and system design to installation, performance monitoring, and
-                            ongoing support,
-                            Maxx Energy ensures that every project achieves optimal efficiency and cost savings. Our
-                            integrated approach
-                            combines state-of-the-art technology with sustainable practices to deliver energy solutions
-                            that are both
-                            reliable and environmentally responsible.
-                        </p>
-                    </div>
+<div class="container">
+    <!-- Company Stats -->
+    <div class="row mb-5 text-center">
+        <div class="col-md-3 mb-4 mb-md-0">
+            <div class="p-4 bg-light rounded shadow-sm h-100">
+                <i class="fas fa-solar-panel fa-3x text-primary mb-3"></i>
+                <h3 class="counter fw-bold">500+</h3>
+                <p class="text-muted">Installations Completed</p>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4 mb-md-0">
+            <div class="p-4 bg-light rounded shadow-sm h-100">
+                <i class="fas fa-leaf fa-3x text-success mb-3"></i>
+                <h3 class="counter fw-bold">10,000</h3>
+                <p class="text-muted">Tons of CO₂ Saved</p>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4 mb-md-0">
+            <div class="p-4 bg-light rounded shadow-sm h-100">
+                <i class="fas fa-users fa-3x text-info mb-3"></i>
+                <h3 class="counter fw-bold">1,200+</h3>
+                <p class="text-muted">Happy Customers</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="p-4 bg-light rounded shadow-sm h-100">
+                <i class="fas fa-award fa-3x text-warning mb-3"></i>
+                <h3 class="counter fw-bold">15</h3>
+                <p class="text-muted">Industry Awards</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Our Mission Section -->
+    <div class="row align-items-center mb-5 py-5" id="mission">
+        <div class="col-md-6">
+            <div class="position-relative">
+                <img class="img-fluid rounded-lg shadow-lg"
+                    src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&auto=format&fit=crop&q=60"
+                    alt="Our Mission">
+                <div class="position-absolute top-0 start-0 bg-primary text-white p-3 rounded-end">
+                    <h5 class="mb-0">Since 2010</h5>
                 </div>
             </div>
-
-            <!-- Our Team Section -->
-            <div class="row align-items-center mb-5">
-                <div class="col-md-6">
-                    <img class="img-fluid rounded shadow-lg"
-                        src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1600&auto=format&fit=crop&q=60"
-                        alt="Our Team">
+        </div>
+        <div class="col-md-6">
+            <div class="p-4 p-md-5">
+                <div class="d-flex align-items-center mb-4">
+                    <div class="bg-primary rounded-circle p-2 me-3">
+                        <i class="fas fa-lightbulb text-white"></i>
+                    </div>
+                    <h2 class="fw-bold mb-0">Our Mission</h2>
                 </div>
-                <div class="col-md-6">
-                    <div class="p-4">
-                        <h1 class="mb-3 text-secondary fw-bold">Our Team</h1>
-                        <p class="lead text-muted">
-                            Our team of experienced engineers, energy experts, and dedicated professionals is passionate
-                            about renewable energy.
-                            With decades of combined experience, we work collaboratively to design and implement
-                            innovative solar solutions that
-                            drive efficiency and foster sustainable growth. At Maxx Energy, our people are our greatest
-                            asset, consistently pushing
-                            the boundaries to deliver excellence in every project.
-                        </p>
+                <p class="lead text-muted mb-4">
+                    At Maxx Energy, our mission is to power a sustainable future by harnessing the limitless
+                    energy of the sun. We are committed to delivering innovative solar solutions that reduce 
+                    environmental impact, empower communities, and promote energy independence.
+                </p>
+                <div class="bg-light p-4 rounded mb-4">
+                    <blockquote class="blockquote">
+                        <p class="mb-0 fst-italic">"We don't just install solar panels; we're creating a cleaner, more sustainable world for future generations."</p>
+                        <footer class="blockquote-footer mt-2">Michael Chen, <cite title="Source Title">Founder & CEO</cite></footer>
+                    </blockquote>
+                </div>
+                <div class="d-flex flex-wrap gap-2">
+                    <span class="badge bg-success p-2">Carbon Reduction</span>
+                    <span class="badge bg-info p-2">Energy Independence</span>
+                    <span class="badge bg-warning p-2">Sustainability</span>
+                    <span class="badge bg-danger p-2">Innovation</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- What We Do Section -->
+    <div class="row mb-5 py-5 bg-light rounded-lg shadow-sm">
+        <div class="col-12 text-center mb-5">
+            <h2 class="fw-bold">Our Comprehensive Services</h2>
+            <p class="lead text-muted col-md-8 mx-auto">From initial consultation to ongoing support, we provide end-to-end solar energy solutions.</p>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center p-4">
+                    <div class="rounded-circle bg-primary p-3 d-inline-flex mb-3">
+                        <i class="fas fa-home fa-2x text-white"></i>
+                    </div>
+                    <h4 class="card-title">Residential Solutions</h4>
+                    <p class="card-text text-muted">Custom solar systems designed for homes of all sizes, helping families reduce utility bills and carbon footprint.</p>
+                    <ul class="list-unstyled text-start">
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Rooftop installations</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Battery storage options</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Smart home integration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center p-4">
+                    <div class="rounded-circle bg-primary p-3 d-inline-flex mb-3">
+                        <i class="fas fa-building fa-2x text-white"></i>
+                    </div>
+                    <h4 class="card-title">Commercial Projects</h4>
+                    <p class="card-text text-muted">Scalable energy solutions for businesses, reducing operational costs and enhancing sustainability credentials.</p>
+                    <ul class="list-unstyled text-start">
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Large-scale installations</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Energy management systems</li>
+                        <li><i class="fas fa-check text-success me-2"></i> ROI optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center p-4">
+                    <div class="rounded-circle bg-primary p-3 d-inline-flex mb-3">
+                        <i class="fas fa-tools fa-2x text-white"></i>
+                    </div>
+                    <h4 class="card-title">Maintenance & Support</h4>
+                    <p class="card-text text-muted">Comprehensive maintenance programs and responsive support to ensure optimal system performance.</p>
+                    <ul class="list-unstyled text-start">
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Regular inspections</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Performance monitoring</li>
+                        <li><i class="fas fa-check text-success me-2"></i> 24/7 technical support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Our Process -->
+    <div class="row mb-5 py-5">
+        <div class="col-12 text-center mb-5">
+            <h2 class="fw-bold">Our Proven Process</h2>
+            <p class="lead text-muted col-md-8 mx-auto">We've refined our approach to ensure a seamless experience from start to finish.</p>
+        </div>
+        
+        <div class="col-md-3 mb-4 mb-md-0">
+            <div class="process-step text-center">
+                <div class="process-number bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3">
+                    <span class="fw-bold">1</span>
+                </div>
+                <h4>Consultation</h4>
+                <p class="text-muted">We assess your energy needs and site conditions to design the perfect system.</p>
+            </div>
+        </div>
+        
+        <div class="col-md-3 mb-4 mb-md-0">
+            <div class="process-step text-center">
+                <div class="process-number bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3">
+                    <span class="fw-bold">2</span>
+                </div>
+                <h4>Custom Design</h4>
+                <p class="text-muted">Our engineers create a tailored solution optimized for your specific requirements.</p>
+            </div>
+        </div>
+        
+        <div class="col-md-3 mb-4 mb-md-0">
+            <div class="process-step text-center">
+                <div class="process-number bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3">
+                    <span class="fw-bold">3</span>
+                </div>
+                <h4>Professional Installation</h4>
+                <p class="text-muted">Our certified technicians handle the entire installation with minimal disruption.</p>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="process-step text-center">
+                <div class="process-number bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3">
+                    <span class="fw-bold">4</span>
+                </div>
+                <h4>Ongoing Support</h4>
+                <p class="text-muted">We provide continuous monitoring and maintenance to ensure optimal performance.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Our Team Section -->
+    <div class="row align-items-center mb-5 py-5 bg-light rounded-lg shadow-sm">
+        <div class="col-md-6">
+            <div class="position-relative">
+                <img class="img-fluid rounded-lg shadow-lg"
+                    src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1600&auto=format&fit=crop&q=60"
+                    alt="Our Team">
+                <div class="position-absolute bottom-0 end-0 bg-white p-3 rounded-start shadow">
+                    <h5 class="mb-0 text-primary">30+ Solar Experts</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-4 p-md-5">
+                <div class="d-flex align-items-center mb-4">
+                    <div class="bg-primary rounded-circle p-2 me-3">
+                        <i class="fas fa-users text-white"></i>
+                    </div>
+                    <h2 class="fw-bold mb-0">Our Expert Team</h2>
+                </div>
+                <p class="lead text-muted mb-4">
+                    Our diverse team of engineers, designers, and solar specialists brings decades of combined experience 
+                    to every project we undertake.
+                </p>
+                
+                <div class="row mb-4">
+                    <div class="col-md-6 mb-3">
+                        <div class="d-flex align-items-center">
+                            <div class="bg-success rounded-circle p-2 me-3">
+                                <i class="fas fa-certificate text-white"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-0">Certified Engineers</h5>
+                                <p class="text-muted mb-0">NABCEP certified professionals</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="d-flex align-items-center">
+                            <div class="bg-info rounded-circle p-2 me-3">
+                                <i class="fas fa-project-diagram text-white"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-0">Project Managers</h5>
+                                <p class="text-muted mb-0">PMP certified experts</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="d-flex align-items-center">
+                            <div class="bg-warning rounded-circle p-2 me-3">
+                                <i class="fas fa-lightbulb text-white"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-0">Energy Consultants</h5>
+                                <p class="text-muted mb-0">Specialized in optimization</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center">
+                            <div class="bg-danger rounded-circle p-2 me-3">
+                                <i class="fas fa-headset text-white"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-0">Support Team</h5>
+                                <p class="text-muted mb-0">24/7 customer assistance</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="/team" class="btn btn-outline-primary">Meet Our Full Team</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="row mb-5 py-5">
+        <div class="col-12 text-center mb-5">
+            <h2 class="fw-bold">What Our Clients Say</h2>
+            <p class="lead text-muted col-md-8 mx-auto">Don't just take our word for it - hear from those who've experienced the Maxx Energy difference.</p>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <div class="mb-3 text-warning">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="card-text fst-italic mb-4">"Maxx Energy transformed our home with a solar system that exceeded our expectations. The team was professional from start to finish, and we're now saving over $200 monthly on our energy bills."</p>
+                    <div class="d-flex align-items-center">
+                        <img src="https://randomuser.me/api/portraits/women/45.jpg" class="rounded-circle me-3" width="50" height="50" alt="Client">
+                        <div>
+                            <h5 class="mb-0">Sarah Johnson</h5>
+                            <p class="text-muted mb-0">Homeowner</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <div class="mb-3 text-warning">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="card-text fst-italic mb-4">"As a business owner, I was concerned about the transition to solar. Maxx Energy made it seamless, handling everything from permits to installation. Our ROI has been better than projected."</p>
+                    <div class="d-flex align-items-center">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle me-3" width="50" height="50" alt="Client">
+                        <div>
+                            <h5 class="mb-0">Robert Chen</h5>
+                            <p class="text-muted mb-0">Business Owner</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <div class="mb-3 text-warning">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="card-text fst-italic mb-4">"Our community solar project with Maxx Energy has united our neighborhood while significantly reducing our collective carbon footprint. Their expertise in community projects is unmatched."</p>
+                    <div class="d-flex align-items-center">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" class="rounded-circle me-3" width="50" height="50" alt="Client">
+                        <div>
+                            <h5 class="mb-0">Maria Rodriguez</h5>
+                            <p class="text-muted mb-0">Community Leader</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <%- include('partials/_footer.ejs') %>
+    <!-- Call to Action -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <div class="bg-primary text-white p-5 rounded-lg shadow text-center">
+                <h2 class="fw-bold mb-3">Ready to Harness the Power of the Sun?</h2>
+                <p class="lead mb-4 col-md-8 mx-auto">Join thousands of satisfied customers who have made the switch to clean, renewable solar energy with Maxx Energy.</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="/contact" class="btn btn-light btn-lg px-4">Get a Free Quote</a>
+                    <a href="/calculator" class="btn btn-outline-light btn-lg px-4">Solar Savings Calculator</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add this CSS to your stylesheet -->
+<style>
+    .bg-gradient-primary {
+        background: linear-gradient(135deg, #4e73df 0%, #224abe 100%);
+    }
+    
+    .rounded-lg {
+        border-radius: 0.5rem;
+    }
+    
+    .process-number {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .counter {
+        font-size: 2.5rem;
+    }
+    
+    /* Add hover effects */
+    .card {
+        transition: transform 0.3s ease;
+    }
+    
+    .card:hover {
+        transform: translateY(-10px);
+    }
+    
+    img.rounded-lg {
+        transition: all 0.3s ease;
+    }
+    
+    img.rounded-lg:hover {
+        transform: scale(1.02);
+    }
+</style>
+
+<%- include('partials/_footer.ejs') %>

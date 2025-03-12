@@ -1,134 +1,520 @@
 <%- include('partials/_header.ejs') %>
-    <%- include('partials/_navigator.ejs') %>
+<%- include('partials/_navigator.ejs') %>
 
-        <div class="container mt-5 pt-4">
-            <!-- FAQ Heading -->
-            <div class="text-center mb-5">
-                <h1 class="text-secondary fw-bold">Frequently Asked Questions</h1>
+<div class="faq-hero bg-light py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h1 class="display-5 fw-bold text-primary mb-3">Frequently Asked Questions</h1>
                 <p class="lead text-muted">
-                    Find answers to some of the most common questions about the Enterprise Data Portal Solar Planet
-                    Generation (EDAP).
+                    Find answers to some of the most common questions about Maxxenergy
                 </p>
             </div>
+        </div>
+    </div>
+</div>
 
-           
-            <input type="text" id="search" placeholder="Search..." class="form-control w-75 mx-auto" onkeyup="search()">
-            <div id="noresults" style="margin-top:50px;"></div>
-            
+<div class="container mt-5">
+    <!-- Search Bar -->
+    <div class="row justify-content-center mb-5">
+        <div class="col-lg-8">
+            <div class="search-wrapper position-relative">
+                <i class="fas fa-search position-absolute search-icon"></i>
+                <input type="text" id="search" placeholder="Search for answers..." 
+                       class="form-control form-control-lg shadow-sm ps-5" 
+                       onkeyup="search()">
+                <div class="search-animation position-absolute"></div>
+            </div>
+            <div id="noresults" class="text-center mt-4 text-muted fst-italic"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <!-- FAQ Categories -->
+            <div class="faq-categories mb-4 d-flex justify-content-center flex-wrap">
+                <button class="btn btn-outline-primary rounded-pill m-1 active" onclick="filterCategory('all')">
+                    All Questions
+                </button>
+                <button class="btn btn-outline-primary rounded-pill m-1" onclick="filterCategory('general')">
+                    General
+                </button>
+                <button class="btn btn-outline-primary rounded-pill m-1" onclick="filterCategory('access')">
+                    Access & Security
+                </button>
+                <button class="btn btn-outline-primary rounded-pill m-1" onclick="filterCategory('data')">
+                    Data & Reports
+                </button>
+            </div>
 
             <!-- FAQ Section -->
-            <div class="accordion" id="faqAccordion" style="margin-bottom: 50px;">
-
+            <div class="accordion shadow-sm rounded overflow-hidden" id="faqAccordion">
                 <!-- Question 1: What is EDAP? -->
-                <div class="accordion-item">
+                <div class="accordion-item border-0 faq-item" data-category="general">
                     <h2 class="accordion-header" id="headingOne">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <div class="me-3">
+                                <div class="faq-icon-wrapper">
+                                    <i class="fas fa-question"></i>
+                                </div>
+                            </div>
                             What is EDAP?
                         </button>
                     </h2>
                     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                         data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            The Enterprise Data Portal Solar Planet Generation (EDAP) is a platform designed for
+                            <p>The Enterprise Data Portal Solar Planet Generation (EDAP) is a platform designed for
                             managing solar energy data, including solar generation statistics and planet-based energy
-                            performance.
+                            performance.</p>
+                            
+                            <p>Key features include:</p>
+                            <ul>
+                                <li>Real-time solar generation monitoring</li>
+                                <li>Comprehensive data analytics</li>
+                                <li>Customizable reporting tools</li>
+                                <li>Integration with existing energy management systems</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
                 <!-- Question 2: How do I access the portal? -->
-                <div class="accordion-item">
+                <div class="accordion-item border-0 faq-item" data-category="access">
                     <h2 class="accordion-header" id="headingTwo">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <div class="me-3">
+                                <div class="faq-icon-wrapper">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                </div>
+                            </div>
                             How do I access the portal?
                         </button>
                     </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                         data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            Simply log in using your credentials. If you don't have an account, you can sign up for free
-                            on the registration page.
+                            <p>Simply log in using your credentials. If you don't have an account, you can sign up for free
+                            on the registration page.</p>
+                            
+                            <div class="bg-light p-3 rounded mt-3">
+                                <h6 class="mb-2"><i class="fas fa-lightbulb text-warning me-2"></i>Quick Tip</h6>
+                                <p class="mb-0">For the best experience, we recommend using the latest version of Chrome, Firefox, or Edge browsers.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Question 3: What data can I access? -->
-                <div class="accordion-item">
+                <div class="accordion-item border-0 faq-item" data-category="data">
                     <h2 class="accordion-header" id="headingThree">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <div class="me-3">
+                                <div class="faq-icon-wrapper">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                            </div>
                             What data can I access?
                         </button>
                     </h2>
                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                         data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            You can access detailed solar energy generation reports, planet generation statistics,
-                            energy forecasts, and more.
+                            <p>You can access detailed solar energy generation reports, planet generation statistics,
+                            energy forecasts, and more.</p>
+                            
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="me-3 text-primary">
+                                            <i class="fas fa-chart-line"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-0">Performance Analytics</h6>
+                                            <small class="text-muted">Historical and real-time data</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="me-3 text-success">
+                                            <i class="fas fa-file-alt"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-0">Custom Reports</h6>
+                                            <small class="text-muted">Tailored to your needs</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="me-3 text-warning">
+                                            <i class="fas fa-sun"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-0">Solar Forecasts</h6>
+                                            <small class="text-muted">Predictive generation models</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex align-items-center">
+                                        <div class="me-3 text-info">
+                                            <i class="fas fa-globe"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-0">Planet-Based Data</h6>
+                                            <small class="text-muted">Global energy insights</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Question 4: Can I export data? -->
-                <div class="accordion-item">
+                <div class="accordion-item border-0 faq-item" data-category="data">
                     <h2 class="accordion-header" id="headingFour">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            <div class="me-3">
+                                <div class="faq-icon-wrapper">
+                                    <i class="fas fa-file-export"></i>
+                                </div>
+                            </div>
                             Can I export data?
                         </button>
                     </h2>
                     <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
                         data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            Yes, you can export data in CSV and Excel formats for further analysis and reporting.
+                            <p>Yes, you can export data in CSV and Excel formats for further analysis and reporting.</p>
+                            
+                            <div class="d-flex flex-wrap gap-2 mt-3">
+                                <div class="export-format-badge">
+                                    <i class="fas fa-file-csv me-1"></i> CSV
+                                </div>
+                                <div class="export-format-badge">
+                                    <i class="fas fa-file-excel me-1"></i> Excel
+                                </div>
+                                <div class="export-format-badge">
+                                    <i class="fas fa-file-pdf me-1"></i> PDF
+                                </div>
+                                <div class="export-format-badge">
+                                    <i class="fas fa-file-image me-1"></i> PNG/JPG
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Question 5: Is the portal secure? -->
-                <div class="accordion-item">
+                <div class="accordion-item border-0 faq-item" data-category="access">
                     <h2 class="accordion-header" id="headingFive">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            <div class="me-3">
+                                <div class="faq-icon-wrapper">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                            </div>
                             Is the portal secure?
                         </button>
                     </h2>
                     <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
                         data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            Yes, the portal uses industry-standard encryption, multi-factor authentication, and secure
-                            data storage to protect your information.
+                            <p>Yes, the portal uses industry-standard encryption, multi-factor authentication, and secure
+                            data storage to protect your information.</p>
+                            
+                            <div class="security-features mt-3">
+                                <div class="security-feature">
+                                    <div class="security-icon">
+                                        <i class="fas fa-lock"></i>
+                                    </div>
+                                    <div>
+                                        <h6>256-bit Encryption</h6>
+                                        <p class="text-muted small mb-0">All data is encrypted in transit and at rest</p>
+                                    </div>
+                                </div>
+                                <div class="security-feature">
+                                    <div class="security-icon">
+                                        <i class="fas fa-key"></i>
+                                    </div>
+                                    <div>
+                                        <h6>Multi-Factor Authentication</h6>
+                                        <p class="text-muted small mb-0">Additional security layer for account access</p>
+                                    </div>
+                                </div>
+                                <div class="security-feature">
+                                    <div class="security-icon">
+                                        <i class="fas fa-user-shield"></i>
+                                    </div>
+                                    <div>
+                                        <h6>Role-Based Access</h6>
+                                        <p class="text-muted small mb-0">Granular control over data visibility</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Question 6: Who do I contact for support? -->
-                <div class="accordion-item">
+                <div class="accordion-item border-0 faq-item" data-category="general">
                     <h2 class="accordion-header" id="headingSix">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                            <div class="me-3">
+                                <div class="faq-icon-wrapper">
+                                    <i class="fas fa-headset"></i>
+                                </div>
+                            </div>
                             Who do I contact for support?
                         </button>
                     </h2>
                     <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
                         data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
-                            If you need assistance, please reach out to our support team at support@edap.com or through
-                            the contact form on the website.
+                            <p>If you need assistance, please reach out to our support team at support@edap.com or through
+                            the contact form on the website.</p>
+                            
+                            <div class="support-options mt-3">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <a href="mailto:support@edap.com" class="support-option">
+                                            <i class="fas fa-envelope"></i>
+                                            <span>Email Support</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <a href="/contact" class="support-option">
+                                            <i class="fas fa-comment-alt"></i>
+                                            <span>Contact Form</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <a href="#" class="support-option">
+                                            <i class="fas fa-phone-alt"></i>
+                                            <span>Call Support</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <a href="#" class="support-option">
+                                            <i class="fas fa-book"></i>
+                                            <span>Knowledge Base</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- CTA Section -->
-            <div class="text-center mb-5">
-                <h2 class="fw-bold text-secondary">Ready to Get Started?</h2>
-                <p class="text-muted mb-4">Contact us to learn more about how EDAP can help streamline your solar energy
-                    management and data analysis.</p>
-                <a href="/contact" class="btn btn-primary btn-lg">Get in Touch</a>
+            
+            <!-- Still Have Questions -->
+            <div class="still-have-questions mt-5 p-4 bg-light rounded-lg shadow-sm text-center">
+                <h3 class="fw-bold mb-3">Still Have Questions?</h3>
+                <p class="text-muted mb-4">Our team is here to help you get the most out of EDAP.</p>
+                <a href="/contact" class="btn btn-primary btn-lg px-4 rounded-pill">
+                    <i class="fas fa-paper-plane me-2"></i>Contact Us
+                </a>
             </div>
         </div>
+    </div>
+</div>
 
-        <%- include('partials/_footer.ejs') %>
+<style>
+    /* Search bar styling */
+    .search-wrapper {
+        margin-bottom: 2rem;
+    }
+    
+    .search-icon {
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #6c757d;
+    }
+    
+    .search-animation {
+        width: 3px;
+        height: 60%;
+        background-color: #4e73df;
+        right: 15px;
+        top: 20%;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+    
+    #search:focus + .search-animation {
+        opacity: 1;
+        animation: blink 1s infinite;
+    }
+    
+    @keyframes blink {
+        0%, 100% { opacity: 0; }
+        50% { opacity: 1; }
+    }
+    
+    /* FAQ item styling */
+    .faq-icon-wrapper {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background-color: rgba(78, 115, 223, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #4e73df;
+    }
+    
+    .accordion-button {
+        padding: 1.25rem 1.5rem;
+    }
+    
+    .accordion-button:not(.collapsed) {
+        background-color: rgba(78, 115, 223, 0.05);
+        color: #4e73df;
+    }
+    
+    .accordion-button:focus {
+        box-shadow: none;
+        border-color: rgba(78, 115, 223, 0.25);
+    }
+    
+    .accordion-body {
+        padding: 1.5rem;
+        background-color: #fff;
+    }
+    
+    /* Export format badges */
+    .export-format-badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        background-color: #f8f9fa;
+        border-radius: 30px;
+        font-weight: 500;
+        color: #495057;
+    }
+    
+    /* Security features */
+    .security-features {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .security-feature {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .security-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba(78, 115, 223, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #4e73df;
+    }
+    
+    /* Support options */
+    .support-option {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1rem;
+        background-color: #f8f9fa;
+        border-radius: 0.5rem;
+        color: #495057;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    
+    .support-option:hover {
+        background-color: #4e73df;
+        color: white;
+        transform: translateY(-3px);
+    }
+    
+    /* Category buttons */
+    .faq-categories .btn {
+        transition: all 0.3s ease;
+    }
+    
+    .faq-categories .btn.active {
+        background-color: #4e73df;
+        color: white;
+    }
+</style>
+
+<script>
+    function search() {
+        // Get the search input value
+        let input = document.getElementById('search').value.toLowerCase();
+        let items = document.getElementsByClassName('faq-item');
+        let noResults = document.getElementById('noresults');
+        let found = false;
+        
+        // Loop through all FAQ items
+        for (let i = 0; i < items.length; i++) {
+            let button = items[i].querySelector('.accordion-button');
+            let text = button.textContent || button.innerText;
+            let body = items[i].querySelector('.accordion-body');
+            let bodyText = body.textContent || body.innerText;
+            
+            // Check if the search input matches the question or answer
+            if (text.toLowerCase().indexOf(input) > -1 || bodyText.toLowerCase().indexOf(input) > -1) {
+                items[i].style.display = "";
+                found = true;
+                
+                // If the item matches and is not already open, open it
+                if (input.length > 2 && button.classList.contains('collapsed')) {
+                    button.click();
+                }
+            } else {
+                items[i].style.display = "none";
+            }
+        }
+        
+        // Display a message if no results are found
+        if (!found && input.length > 0) {
+            noResults.innerHTML = `<div class="alert alert-info">No results found for "${input}". Please try a different search term.</div>`;
+        } else {
+            noResults.innerHTML = "";
+        }
+    }
+    
+    function filterCategory(category) {
+        // Update active button
+        let buttons = document.querySelectorAll('.faq-categories .btn');
+        buttons.forEach(button => {
+            button.classList.remove('active');
+            if (button.textContent.trim().toLowerCase().includes(category) || 
+                (category === 'all' && button.textContent.trim().toLowerCase().includes('all'))) {
+                button.classList.add('active');
+            }
+        });
+        
+        // Filter items
+        let items = document.getElementsByClassName('faq-item');
+        for (let i = 0; i < items.length; i++) {
+            if (category === 'all' || items[i].getAttribute('data-category') === category) {
+                items[i].style.display = "";
+            } else {
+                items[i].style.display = "none";
+            }
+        }
+    }
+</script>
+
+<%- include('partials/_footer.ejs') %>

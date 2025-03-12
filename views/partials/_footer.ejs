@@ -1,393 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title>MaxxEnergy Dark Footer with Clickable Modals</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <style>
-        /* Overall dark footer styling */
-        .footer-area {
-            background-color: #343a40;
-            padding: 20px 0;
-            color: #fff;
-            font-size: 14px;
-        }
+  <meta charset="UTF-8">
+  <title>MaxxEnergy Dark Footer with AI Chatbot</title>
+  <!-- Bootstrap CSS -->
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+    rel="stylesheet"
+  >
+  <!-- Bootstrap Icons -->
+  <link 
+    rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+  >
+  <!-- Google Fonts -->
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" 
+    rel="stylesheet"
+  >
+  <style>
+    /* Footer Styles */
+    .footer-area {
+      background-color: #343a40;
+      padding: 20px 0;
+      color: #fff;
+      font-size: 14px;
+    }
+    
+    .subscribe-form {
+      display: flex;
+      max-width: 300px;
+      margin: auto;
+    }
+    
+    .subscribe-form input {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid #555;
+      border-right: 0;
+      border-radius: 4px 0 0 4px;
+      background-color: #fff;
+      color: #000;
+    }
+    
+    .subscribe-form button {
+      border: none;
+      background: #212529;
+      color: #fff;
+      padding: 0 12px;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+    }
+    
+    .social-icons {
+      display: inline-flex;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+    
+    .social-icons a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 1.25rem;
+      transition: color 0.2s ease;
+    }
+    
+    .social-icons a:hover {
+      color: #adb5bd;
+    }
+    
+    .bottom-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    
+    .bottom-links button {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+    
+    .bottom-links button:hover {
+      color: #adb5bd;
+    }
 
-        /* Subscription form styling */
-        .subscribe-form {
-            display: flex;
-            max-width: 300px;
-        }
 
-        .subscribe-form input {
-            flex: 1;
-            padding: 8px;
-            border: 1px solid #555;
-            border-right: 0;
-            border-radius: 4px 0 0 4px;
-            outline: none;
-            background-color: #fff;
-            /* White background for contrast */
-            color: #000;
-            /* Dark text for readability */
-        }
+    /* Chatbot Styles */
+    .chat-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #0d6efd;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 999;
+      border: none;
+      transition: all 0.3s ease;
+    }
 
-        .subscribe-form button {
-            border: none;
-            background: #212529;
-            color: #fff;
-            padding: 0 12px;
-            border-radius: 0 4px 4px 0;
-            cursor: pointer;
-        }
 
-        /* Social icons styling */
-        .social-icons {
-            display: inline-flex;
-            gap: 0.5rem;
-        }
+    .chat-button:hover {
+      background-color: #0b5ed7;
+      transform: scale(1.05);
+    }
 
-        .social-icons a {
-            text-decoration: none;
-            color: #fff;
-            font-size: 1.25rem;
-            transition: color 0.2s ease;
-        }
 
-        .social-icons a:hover {
-            color: #adb5bd;
-        }
+    .chat-container {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 350px;
+      height: 500px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      z-index: 1000;
+      overflow: hidden;
+      display: none;
+      transition: all 0.3s ease;
+    }
 
-        /* Bottom links styling */
-        .bottom-links button {
-            background: none;
-            border: none;
-            color: #fff;
-            margin: 0 0.5rem;
-            font-size: 14px;
-            cursor: pointer;
-            transition: color 0.2s ease;
-        }
 
-        .bottom-links button:hover {
-            color: #adb5bd;
-        }
-
-        /* Modal styling */
-        .modal-content {
-            border-radius: 0.5rem;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .modal-header {
-            background-color: #495057;
-            color: #fff;
-            border-top-left-radius: 0.5rem;
-            border-top-right-radius: 0.5rem;
-        }
-    </style>
+    .chat-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    /* Logo Animation Styles */
+    .logo-container {
+      display: inline-block;
+      position: relative;
+    }
+    
+    .animated-logo {
+      transition: transform 0.5s ease;
+    }
+    
+    /* Pulse animation */
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        filter: brightness(1);
+      }
+      50% {
+        transform: scale(1.05);
+        filter: brightness(1.2);
+      }
+      100% {
+        transform: scale(1);
+        filter: brightness(1);
+      }
+    }
+    
+    /* Floating animation */
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+    
+    /* Glow animation */
+    @keyframes glow {
+      0% {
+        filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
+      }
+      50% {
+        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+      }
+      100% {
+        filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
+      }
+    }
+    
+    /* Apply the animation - choose one of these */
+    .animated-logo {
+      animation: pulse 3s infinite ease-in-out;
+      /* Uncomment one of these instead if you prefer a different animation */
+      /* animation: float 3s infinite ease-in-out; */
+      /* animation: glow 3s infinite ease-in-out; */
+    }
+    
+    /* Hover effect */
+    .logo-container:hover .animated-logo {
+      animation-play-state: paused;
+      transform: scale(1.1);
+      filter: brightness(1.2);
+    }
+  </style>
 </head>
-
 <body>
 
-    <!-- Footer Start -->
-    <footer class="footer-area">
-        <div class="container">
-            <!-- Row 1: Subscription, Logo, Social Icons -->
-            <div class="row align-items-center mb-4">
-                <!-- Subscription Form (Left) -->
-                <div class="col-md-4 mb-3 mb-md-0">
-                    <div class="subscribe-form">
-                        <input type="email" placeholder="Enter your email">
-                        <button type="submit">
-                            <i class="bi bi-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-                <!-- Logo (Center) -->
-                <div class="col-md-4 text-center mb-3 mb-md-0">
-                    <img src="/images/MAXX-Energy-Logo-1B.png" alt="MaxxEnergy Logo" style="max-width: 150px;">
-                </div>
-                <!-- Social Icons (Right) -->
-                <div class="col-md-4 text-md-end text-center">
-                    <div class="social-icons">
-                        <a href="https://x.com/MaxxTechnology" target="_blank">
-                            <i class="bi bi-twitter-x"></i>
-                        </a>
-                        <a href="https://www.facebook.com/maxxpotentialllc/" target="_blank">
-                            <i class="bi bi-facebook"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/company/maxx-potential" target="_blank">
-                            <i class="bi bi-linkedin"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Row 2: Clickable Modal Links Under the Logo -->
-            <div class="row mb-3">
-                <div class="col text-center bottom-links">
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#termsModal">Terms</button>
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#aboutModal">About</button>
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy</button>
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</button>
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#careersModal">Careers</button>
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#personalInfoModal">Personal
-                        Information Request</button>
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#copyrightModal">Copyright Act</button>
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#policyModal">Policy</button>
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#sitemapModal">Sitemap</button>
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#browserReqModal">Browser
-                        Requirements</button>
-                </div>
-            </div>
-
-            <!-- Row 3: Copyright -->
-            <div class="row">
-                <div class="col text-center">
-                    © 2025 MaxxEnergy. All rights reserved.
-                </div>
-            </div>
+<!-- Footer Start -->
+<footer class="footer-area">
+  <div class="container">
+    <!-- Row 1: Subscription, Logo, Social Icons -->
+    <div class="row align-items-center mb-4">
+      <!-- Subscription Form (Left) -->
+      <div class="col-md-4 mb-3 mb-md-0">
+        <div class="subscribe-form">
+          <input type="email" placeholder="Enter your email">
+          <button type="submit">
+            <i class="bi bi-arrow-right"></i>
+          </button>
         </div>
-    </footer>
-    <!-- Footer End -->
-
-    <!-- Clickable Modals -->
-
-    <!-- Terms Modal -->
-    <div class="modal fade text-black" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="termsModalLabel">Terms &amp; Conditions</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        By using our website, you agree to the terms and conditions outlined herein.
-                        Unauthorized use is prohibited.
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
+      </div>
+      <!-- Logo (Center) with Animation -->
+      <div class="col-md-4 text-center mb-3 mb-md-0">
+        <div class="logo-container">
+          <img src="/images/MAXX-Energy-Logo-1B.png" alt="MaxxEnergy Logo" class="animated-logo" style="max-width: 150px;">
         </div>
+      </div>
+      <!-- Social Icons (Right) -->
+      <div class="col-md-4 text-md-end text-center">
+        <div class="social-icons">
+          <a href="https://x.com/MaxxTechnology" target="_blank"><i class="bi bi-twitter-x"></i></a>
+          <a href="https://www.facebook.com/maxxpotentialllc/" target="_blank"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.linkedin.com/company/maxx-potential" target="_blank"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
     </div>
-
-    <!-- About Modal -->
-    <div class="modal fade text-black" id="aboutModal" tabindex="-1" aria-labelledby="aboutModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="aboutModalLabel">About MaxxEnergy</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        MaxxEnergy is dedicated to providing sustainable energy solutions.
-                        Our mission is to innovate and deliver eco-friendly energy services.
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
+    
+    <!-- Row 2: Clickable Modal Links -->
+    <div class="row mb-3">
+      <div class="col text-center bottom-links">
+        <button type="button" data-bs-toggle="modal" data-bs-target="#termsModal">Terms</button>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#aboutModal">About</button>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy</button>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</button>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#careersModal">Careers</button>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#personalInfoModal">Personal Information Request</button>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#copyrightModal">Copyright Act</button>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#policyModal">Policy</button>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#sitemapModal">Sitemap</button>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#browserReqModal">Browser Requirements</button>
+      </div>
     </div>
-
-    <!-- Privacy Modal -->
-    <div class="modal fade text-black" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="privacyModalLabel">Privacy Policy</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        We value your privacy and are committed to protecting your personal information.
-                        Our privacy policy explains how we collect, use, and safeguard your data.
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
+    
+    <!-- Row 3: Copyright -->
+    <div class="row">
+      <div class="col text-center">
+        © <%= new Date().getFullYear() %> MaxxEnergy. All rights reserved.
+      </div>
     </div>
+  </div>
+</footer>
+<!-- Footer End -->
 
-    <!-- Contact Modal -->
-    <div class="modal fade text-black" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="contactModalLabel">Contact Us</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        For inquiries, please email us at
-                        <a href="mailto:info@maxxenergy.com"
-                            class="text-decoration-none text-dark">info@maxxenergy.com</a>.
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Careers Modal -->
-    <div class="modal fade text-black" id="careersModal" tabindex="-1" aria-labelledby="careersModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="careersModalLabel">Careers at MaxxEnergy</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        Explore career opportunities at MaxxEnergy. Check back later for current openings and
-                        application details.
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+<!-- Chat Button -->
+<button class="chat-button" id="chatButton">
+  <i class="bi bi-chat-dots-fill" style="font-size: 24px;"></i>
+</button>
 
-    <!-- Personal Information Request Modal -->
-    <div class="modal fade text-black" id="personalInfoModal" tabindex="-1" aria-labelledby="personalInfoModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="personalInfoModalLabel">Personal Information Request</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        To request your personal information, please contact our support team at
-                        <a href="mailto:privacy@maxxenergy.com"
-                            class="text-decoration-none text-dark">privacy@maxxenergy.com</a>.
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Copyright Act Modal -->
-    <div class="modal fade text-black" id="copyrightModal" tabindex="-1" aria-labelledby="copyrightModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="copyrightModalLabel">Copyright Act</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        Our website respects intellectual property rights. For detailed information, please refer to our
-                        Copyright Act documentation.
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+<!-- Chat Container -->
+<div class="chat-container" id="chatContainer">
+  <iframe src="https://t3.chat/chat" class="chat-iframe" title="T3 AI Chat"></iframe>
+</div>
 
-    <!-- Policy Modal -->
-    <div class="modal fade text-black" id="policyModal" tabindex="-1" aria-labelledby="policyModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="policyModalLabel">Policy</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        Our policies are designed to protect both our users and our organization. For more details,
-                        please review our policy documents.
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Sitemap Modal -->
-    <div class="modal fade text-black" id="sitemapModal" tabindex="-1" aria-labelledby="sitemapModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="sitemapModalLabel">Sitemap</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        Navigate through our website using the sitemap below:
-                    </p>
-                    <ul>
-                        <li>Home</li>
-                        <li>About Us</li>
-                        <li>Services</li>
-                        <li>Careers</li>
-                        <li>Contact</li>
-                    </ul>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+<!-- Bootstrap JS Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Browser Requirements Modal -->
-    <div class="modal fade text-black" id="browserReqModal" tabindex="-1" aria-labelledby="browserReqModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="browserReqModalLabel">Browser Requirements</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        For the best browsing experience, please use the latest versions of Chrome, Firefox, Safari, or
-                        Edge.
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Bootstrap JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Chat Toggle Script -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const chatButton = document.getElementById('chatButton');
+    const chatContainer = document.getElementById('chatContainer');
+    
+    chatButton.addEventListener('click', function() {
+      if (chatContainer.style.display === 'none' || chatContainer.style.display === '') {
+        chatContainer.style.display = 'block';
+        chatButton.innerHTML = '<i class="bi bi-x-lg" style="font-size: 24px;"></i>';
+      } else {
+        chatContainer.style.display = 'none';
+        chatButton.innerHTML = '<i class="bi bi-chat-dots-fill" style="font-size: 24px;"></i>';
+      }
+    });
+  });
+</script>
+
+
 </body>
-
 </html>

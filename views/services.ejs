@@ -1,118 +1,507 @@
 <%- include('partials/_header.ejs') %>
-    <%- include('partials/_navigator.ejs') %>
+<%- include('partials/_navigator.ejs') %>
 
-        <div class="container mt-5 pt-4">
-            <!-- Services Heading -->
-            <div class="text-center mb-5">
-                <h1 class="text-secondary fw-bold">Our Services</h1>
-                <p class="lead text-muted">
-                    At Maxx Energy, we combine cutting-edge technology with sustainable practices to deliver innovative
-                    solar energy solutions.
-                    Discover our suite of services designed to empower your energy independence and optimize
-                    performance.
-                </p>
+<div class="services-hero bg-gradient-primary text-white py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold mb-3">Innovative Solar Services</h1>
+                <p class="lead fs-5 mb-4">Empowering your energy independence with cutting-edge technology and sustainable solutions.</p>
+                <a href="#services" class="btn btn-light btn-lg px-4">Explore Our Services</a>
             </div>
-
-            <!-- Services Section -->
-            <div class="row mb-4">
-                <!-- Service 1: Data Analytics -->
-                <div class="col-md-4 d-flex mb-4">
-                    <div class="service-card p-4 shadow rounded w-100 d-flex flex-column">
-                        <i class="fas fa-chart-line fa-3x mb-3 text-secondary"></i>
-                        <h3 class="fw-bold">Data Analytics</h3>
-                        <p class="text-muted">
-                            Leverage real-time data to monitor your solar system’s performance. Our analytics platform
-                            delivers actionable insights,
-                            helping you optimize energy output, reduce costs, and anticipate maintenance needs.
-                        </p>
-                        <a href="#" class="btn btn-secondary mt-auto">Learn More</a>
-                    </div>
-                </div>
-
-                <!-- Service 2: Cloud-Based Data Solutions -->
-                <div class="col-md-4 d-flex mb-4">
-                    <div class="service-card p-4 shadow rounded w-100 d-flex flex-column">
-                        <i class="fas fa-cloud fa-3x mb-3 text-secondary"></i>
-                        <h3 class="fw-bold">Cloud-Based Data Solutions</h3>
-                        <p class="text-muted">
-                            Securely store and manage your solar performance data in the cloud.
-                            Access comprehensive reports and system metrics from anywhere, ensuring your solar
-                            operations are always optimized.
-                        </p>
-                        <a href="#" class="btn btn-secondary mt-auto">Learn More</a>
-                    </div>
-                </div>
-
-                <!-- Service 3: Energy Management Systems -->
-                <div class="col-md-4 d-flex mb-4">
-                    <div class="service-card p-4 shadow rounded w-100 d-flex flex-column">
-                        <i class="fas fa-bolt fa-3x mb-3 text-secondary"></i>
-                        <h3 class="fw-bold">Energy Management Systems</h3>
-                        <p class="text-muted">
-                            Optimize your energy consumption with smart management systems that integrate renewable
-                            power with grid support.
-                            Our solutions help you reduce energy costs while maximizing efficiency and sustainability.
-                        </p>
-                        <a href="#" class="btn btn-secondary mt-auto">Learn More</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Services Section Continued -->
-            <div class="row mb-4">
-                <!-- Service 4: Solar Data Visualization Tools -->
-                <div class="col-md-4 d-flex mb-4">
-                    <div class="service-card p-4 shadow rounded w-100 d-flex flex-column">
-                        <i class="fas fa-tachometer-alt fa-3x mb-3 text-secondary"></i>
-                        <h3 class="fw-bold">Solar Data Visualization Tools</h3>
-                        <p class="text-muted">
-                            Transform complex solar performance metrics into clear, actionable insights.
-                            Our interactive dashboards make it easy to track energy production, monitor system health,
-                            and plan for the future.
-                        </p>
-                        <a href="#" class="btn btn-secondary mt-auto">Learn More</a>
-                    </div>
-                </div>
-
-                <!-- Service 5: Solar Panel Monitoring Solutions -->
-                <div class="col-md-4 d-flex mb-4">
-                    <div class="service-card p-4 shadow rounded w-100 d-flex flex-column">
-                        <i class="fas fa-solar-panel fa-3x mb-3 text-secondary"></i>
-                        <h3 class="fw-bold">Solar Panel Monitoring Solutions</h3>
-                        <p class="text-muted">
-                            Ensure your solar panels operate at peak performance with our robust monitoring solutions.
-                            Receive real-time alerts and detailed diagnostics to safeguard your investment and extend
-                            your system’s lifespan.
-                        </p>
-                        <a href="#" class="btn btn-secondary mt-auto">Learn More</a>
-                    </div>
-                </div>
-
-                <!-- Service 6: Custom Solar Solutions -->
-                <div class="col-md-4 d-flex mb-4">
-                    <div class="service-card p-4 shadow rounded w-100 d-flex flex-column">
-                        <i class="fas fa-cogs fa-3x mb-3 text-secondary"></i>
-                        <h3 class="fw-bold">Custom Solar Solutions</h3>
-                        <p class="text-muted">
-                            Tailored to meet your unique energy needs, our custom solar solutions integrate expert
-                            design, installation,
-                            and maintenance. Whether it’s for residential or commercial applications, we deliver
-                            reliable and efficient renewable energy.
-                        </p>
-                        <a href="#" class="btn btn-secondary mt-auto">Learn More</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CTA Section -->
-            <div class="text-center mb-5">
-                <h2 class="fw-bold text-secondary">Let's Power the Future Together</h2>
-                <p class="text-muted mb-4">
-                    Contact us today to explore how our innovative solar energy solutions can transform your energy
-                    operations and drive sustainability.
-                </p>
-                <a href="/contact" class="btn btn-primary btn-lg">Get in Touch</a>
+            <div class="col-lg-6 d-none d-lg-block text-center">
+                <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&auto=format&fit=crop&q=60" 
+                     class="img-fluid rounded-circle shadow-lg" alt="Solar Services" style="max-width: 80%;">
             </div>
         </div>
+    </div>
+</div>
+
+<div class="container mt-5 pt-4">
+    <!-- Services Introduction -->
+    <div class="text-center mb-5" id="services">
+        <div class="d-inline-block position-relative mb-4">
+            <h2 class="text-secondary fw-bold display-5 position-relative z-2">Our Services</h2>
+            <div class="bg-primary opacity-10 position-absolute bottom-0 start-0 w-100 h-50 z-1"></div>
+        </div>
+        <p class="lead text-muted col-lg-8 mx-auto">
+            At Maxx Energy, we combine cutting-edge technology with sustainable practices to deliver innovative
+            solar energy solutions. Discover our suite of services designed to empower your energy independence and optimize
+            performance.
+        </p>
+    </div>
+
+    <!-- Service Categories Navigation -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <ul class="nav nav-pills justify-content-center service-tabs mb-4" id="servicesTabs" role="tablist">
+                <li class="nav-item mx-2" role="presentation">
+                    <button class="nav-link active px-4 py-2" id="monitoring-tab" data-bs-toggle="pill" data-bs-target="#monitoring" type="button" role="tab">
+                        <i class="fas fa-chart-line me-2"></i>Monitoring & Analytics
+                    </button>
+                </li>
+                <li class="nav-item mx-2" role="presentation">
+                    <button class="nav-link px-4 py-2" id="installation-tab" data-bs-toggle="pill" data-bs-target="#installation" type="button" role="tab">
+                        <i class="fas fa-solar-panel me-2"></i>Installation & Setup
+                    </button>
+                </li>
+                <li class="nav-item mx-2" role="presentation">
+                    <button class="nav-link px-4 py-2" id="maintenance-tab" data-bs-toggle="pill" data-bs-target="#maintenance" type="button" role="tab">
+                        <i class="fas fa-tools me-2"></i>Maintenance & Support
+                    </button>
+                </li>
+            </ul>
+            
+            <div class="tab-content" id="servicesTabContent">
+                <!-- Monitoring & Analytics Tab -->
+                <div class="tab-pane fade show active" id="monitoring" role="tabpanel">
+                    <div class="row mb-4">
+                        <!-- Service 1: Data Analytics -->
+                        <div class="col-md-4 d-flex mb-4">
+                            <div class="service-card p-4 shadow-lg rounded-lg w-100 d-flex flex-column position-relative overflow-hidden">
+                                <div class="service-icon-wrapper mb-4">
+                                    <div class="service-icon-bg rounded-circle d-inline-flex align-items-center justify-content-center">
+                                        <i class="fas fa-chart-line fa-2x text-white"></i>
+                                    </div>
+                                </div>
+                                <h3 class="fw-bold">Data Analytics</h3>
+                                <p class="text-muted">
+                                    Leverage real-time data to monitor your solar system's performance. Our analytics platform
+                                    delivers actionable insights, helping you optimize energy output, reduce costs, and anticipate maintenance needs.
+                                </p>
+                                <div class="service-features mb-4">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-check-circle text-success me-2"></i>
+                                        <span>Real-time performance tracking</span>
+                                    </div>
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-check-circle text-success me-2"></i>
+                                        <span>Customizable reporting</span>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-check-circle text-success me-2"></i>
+                                        <span>Predictive maintenance alerts</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="btn btn-outline-primary mt-auto">Learn More <i class="fas fa-arrow-right ms-2"></i></a>
+                                <div class="service-card-decoration"></div>
+                            </div>
+                        </div>
+
+                        <!-- Service 2: Cloud-Based Data Solutions -->
+                        <div class="col-md-4 d-flex mb-4">
+                            <div class="service-card p-4 shadow-lg rounded-lg w-100 d-flex flex-column position-relative overflow-hidden">
+                                <div class="service-icon-wrapper mb-4">
+                                    <div class="service-icon-bg rounded-circle d-inline-flex align-items-center justify-content-center">
+                                        <i class="fas fa-cloud fa-2x text-white"></i>
+                                    </div>
+                                </div>
+                                <h3 class="fw-bold">Cloud-Based Data Solutions</h3>
+                                <p class="text-muted">
+                                    Securely store and manage your solar performance data in the cloud.
+                                    Access comprehensive reports and system metrics from anywhere, ensuring your solar
+                                    operations are always optimized.
+                                </p>
+                                <div class="service-features mb-4">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-check-circle text-success me-2"></i>
+                                        <span>Secure data storage</span>
+                                    </div>
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-check-circle text-success me-2"></i>
+                                        <span>Remote access capabilities</span>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-check-circle text-success me-2"></i>
+                                        <span>Automated backups</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="btn btn-outline-primary mt-auto">Learn More <i class="fas fa-arrow-right ms-2"></i></a>
+                                <div class="service-card-decoration"></div>
+                            </div>
+                        </div>
+
+                        <!-- Service 3: Solar Data Visualization Tools -->
+                        <div class="col-md-4 d-flex mb-4">
+                            <div class="service-card p-4 shadow-lg rounded-lg w-100 d-flex flex-column position-relative overflow-hidden">
+                                <div class="service-icon-wrapper mb-4">
+                                    <div class="service-icon-bg rounded-circle d-inline-flex align-items-center justify-content-center">
+                                        <i class="fas fa-tachometer-alt fa-2x text-white"></i>
+                                    </div>
+                                </div>
+                                <h3 class="fw-bold">Data Visualization Tools</h3>
+                                <p class="text-muted">
+                                    Transform complex solar performance metrics into clear, actionable insights.
+                                    Our interactive dashboards make it easy to track energy production, monitor system health,
+                                    and plan for the future.
+                                </p>
+                                <div class="service-features mb-4">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-check-circle text-success me-2"></i>
+                                        <span>Interactive dashboards</span>
+                                    </div>
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-check-circle text-success me-2"></i>
+                                        <span>Custom visualization options</span>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-check-circle text-success me-2"></i>
+                                        <span>Shareable reports</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="btn btn-outline-primary mt-auto">Learn More <i class="fas fa-arrow-right ms-2"></i></a>
+                                <div class="service-card-decoration"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Installation & Setup Tab -->
+                <div class="tab-pane fade" id="installation" role="tabpanel">
+                    <div class="row mb-4">
+                        <!-- Service 4: Residential Solar Installation -->
+                        <div class="col-md-4 d-flex mb-4">
+                            <div class="service-card p-4 shadow-lg rounded-lg w-100 d-flex flex-column position-relative overflow-hidden">
+                                <div class="service-icon-wrapper mb-4">
+                                    <div class="service-icon-bg rounded-circle d-inline-flex align-items-center justify-content-center">
+                                        <i class="fas fa-home fa-2x text-white"></i>
+                                    </div>
+                                </div>
+                                <h3 class="fw-bold">Residential Installation</h3>
+                                <p class="text-muted">
+                                    Custom solar solutions designed specifically for homes. Our expert team handles everything from 
+                                    initial assessment to final installation, ensuring optimal energy production for your residence.
+                                </p>
+                                <div class="service-features mb-4">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-check-circle text-success me-2"></i>
+                                        <span>Custom system design</span>
+                                    </div>
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-check-circle text-success me-2"></i>
+                                        <span>Professional installation</span>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-check-circle text-success me-2"></i>
+                                        <span>Permit handling</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="btn btn-outline-primary mt-auto">Learn More <i class="fas fa-arrow-right ms-2"></i></a>
+                                <div class="service-card-decoration"></div>
+                            </div>
+                        </div>
+
+                        <!-- Service 5: Commercial Solar Installation -->
+                        <div class="col-md-4 d-flex mb-4">
+                            <div class="service-card p-4 shadow-lg rounded-lg w-100 d-flex flex-column position-relative overflow-hidden">
+                                <div class="service-icon-wrapper mb-4">
+                                    <div class="service-icon-bg rounded-circle d-inline-flex align-items-center justify-content-center">
+                                        <i class="fas fa-building fa-2x text-white"></i>
+                                    </div>
+                                </div>
+                                <h3 class="fw-bold">Commercial Installation</h3>
+                                <p class="text-muted">
+                                    Scalable solar solutions for businesses of all sizes. Reduce operational costs and enhance 
+                                    your sustainability profile with our expert commercial solar installation services.
+                                </p>
+                                <div class="service-features mb-4">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-check-circle text-success me-2"></i>
+                                        <span>Large-scale system design</span>
+                                    </div>
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-check-circle text-success me-2"></i>
+                                        <span>ROI optimization</span>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-check-circle text-success me-2"></i>
+                                        <span>Minimal business disruption</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="btn btn-outline-primary mt-auto">Learn More <i class="fas fa-arrow-right ms-2"></i></a>
+                                <div class="service-card-decoration"></div>
+                            </div>
+                        </div>
+
+                        <!-- Service 6: Battery Storage Solutions -->
+                        <div class="col-md-4 d-flex mb-4">
+                            <div class="service-card p-4 shadow-lg rounded-lg w-100 d-flex flex-column position-relative overflow-hidden">
+                                <div class="service-icon-wrapper mb-4">
+                                    <div class="service-icon-bg rounded-circle d-inline-flex align-items-center justify-content-center">
+                                        <i class="fas fa-battery-full fa-2x text-white"></i>
+                                    </div>
+                                </div>
+                                <h3 class="fw-bold">Battery Storage Solutions</h3>
+                                <p class="text-muted">
+                                    Maximize your energy independence with advanced battery storage systems. Store excess energy 
+                                    for use during peak hours or outages, enhancing reliability and savings.
+                                </p>
+                                <div class="service-features mb-4">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-check-circle text-success me-2"></i>
+                                        <span>Advanced storage technology</span>
+                                    </div>
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-check-circle text-success me-2"></i>
+                                        <span>Backup power capability</span>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-check-circle text-success me-2"></i>
+                                        <span>Smart energy management</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="btn btn-outline-primary mt-auto">Learn More <i class="fas fa-arrow-right ms-2"></i></a>
+                                <div class="service-card-decoration"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Maintenance & Support Tab -->
+                <div class="tab-pane fade" id="maintenance" role="tabpanel">
+                    <div class="row mb-4">
+                        <!-- Service 7: Preventive Maintenance -->
+                        <div class="col-md-4 d-flex mb-4">
+                            <div class="service-card p-4 shadow-lg rounded-lg w-100 d-flex flex-column position-relative overflow-hidden">
+                                <div class="service-icon-wrapper mb-4">
+                                    <div class="service-icon-bg rounded-circle d-inline-flex align-items-center justify-content-center">
+                                        <i class="fas fa-tools fa-2x text-white"></i>
+                                    </div>
+                                </div>
+                                <h3 class="fw-bold">Preventive Maintenance</h3>
+                                <p class="text-muted">
+                                    Protect your solar investment with our comprehensive preventive maintenance programs. 
+                                    Regular inspections and servicing ensure optimal performance and extended system life.
+                                </p>
+                                <div class="service-features mb-4">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-check-circle text-success me-2"></i>
+                                        <span>Scheduled inspections</span>
+                                    </div>
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-check-circle text-success me-2"></i>
+                                        <span>System cleaning</span>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-check-circle text-success me-2"></i>
+                                        <span>Component testing</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="btn btn-outline-primary mt-auto">Learn More <i class="fas fa-arrow-right ms-2"></i></a>
+                                <div class="service-card-decoration"></div>
+                            </div>
+                        </div>
+
+                        <!-- Service 8: Monitoring Solutions -->
+                        <div class="col-md-4 d-flex mb-4">
+                            <div class="service-card p-4 shadow-lg rounded-lg w-100 d-flex flex-column position-relative overflow-hidden">
+                                <div class="service-icon-wrapper mb-4">
+                                    <div class="service-icon-bg rounded-circle d-inline-flex align-items-center justify-content-center">
+                                        <i class="fas fa-solar-panel fa-2x text-white"></i>
+                                    </div>
+                                </div>
+                                <h3 class="fw-bold">Monitoring Solutions</h3>
+                                <p class="text-muted">
+                                    Ensure your solar panels operate at peak performance with our robust monitoring solutions.
+                                    Receive real-time alerts and detailed diagnostics to safeguard your investment.
+                                </p>
+                                <div class="service-features mb-4">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-check-circle text-success me-2"></i>
+                                        <span>24/7 system monitoring</span>
+                                    </div>
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-check-circle text-success me-2"></i>
+                                        <span>Automated alerts</span>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-check-circle text-success me-2"></i>
+                                        <span>Performance diagnostics</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="btn btn-outline-primary mt-auto">Learn More <i class="fas fa-arrow-right ms-2"></i></a>
+                                <div class="service-card-decoration"></div>
+                            </div>
+                        </div>
+
+                        <!-- Service 9: Technical Support -->
+                        <div class="col-md-4 d-flex mb-4">
+                            <div class="service-card p-4 shadow-lg rounded-lg w-100 d-flex flex-column position-relative overflow-hidden">
+                                <div class="service-icon-wrapper mb-4">
+                                    <div class="service-icon-bg rounded-circle d-inline-flex align-items-center justify-content-center">
+                                        <i class="fas fa-headset fa-2x text-white"></i>
+                                    </div>
+                                </div>
+                                <h3 class="fw-bold">Technical Support</h3>
+                                <p class="text-muted">
+                                    Access expert technical assistance whenever you need it. Our dedicated support team is available 
+                                    to troubleshoot issues and provide guidance for your solar energy system.
+                                </p>
+                                <div class="service-features mb-4">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-check-circle text-success me-2"></i>
+                                        <span>Responsive support team</span>
+                                    </div>
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="fas fa-check-circle text-success me-2"></i>
+                                        <span>Remote troubleshooting</span>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-check-circle text-success me-2"></i>
+                                        <span>Emergency service</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="btn btn-outline-primary mt-auto">Learn More <i class="fas fa-arrow-right ms-2"></i></a>
+                                <div class="service-card-decoration"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Why Choose Us Section -->
+    <div class="row mb-5 py-4 bg-light rounded-lg shadow-sm">
+        <div class="col-12 text-center mb-4">
+            <h2 class="fw-bold text-secondary">Why Choose Maxx Energy</h2>
+            <p class="text-muted col-lg-8 mx-auto">Our commitment to excellence and innovation sets us apart in the solar energy industry.</p>
+        </div>
+        
+        <div class="col-md-3 mb-4 text-center">
+            <div class="p-4">
+                <div class="rounded-circle bg-primary p-3 d-inline-flex mb-3">
+                    <i class="fas fa-medal fa-2x text-white"></i>
+                </div>
+                <h4>Industry Expertise</h4>
+                <p class="text-muted">Over 10 years of experience in solar energy solutions.</p>
+            </div>
+        </div>
+        
+        <div class="col-md-3 mb-4 text-center">
+            <div class="p-4">
+                <div class="rounded-circle bg-success p-3 d-inline-flex mb-3">
+                    <i class="fas fa-leaf fa-2x text-white"></i>
+                </div>
+                <h4>Sustainability Focus</h4>
+                <p class="text-muted">Committed to environmental responsibility in all we do.</p>
+            </div>
+        </div>
+        
+        <div class="col-md-3 mb-4 text-center">
+            <div class="p-4">
+                <div class="rounded-circle bg-info p-3 d-inline-flex mb-3">
+                    <i class="fas fa-cogs fa-2x text-white"></i>
+                </div>
+                <h4>Cutting-Edge Technology</h4>
+                <p class="text-muted">Using the latest innovations in solar energy systems.</p>
+            </div>
+        </div>
+        
+        <div class="col-md-3 mb-4 text-center">
+            <div class="p-4">
+                <div class="rounded-circle bg-warning p-3 d-inline-flex mb-3">
+                    <i class="fas fa-users fa-2x text-white"></i>
+                </div>
+                <h4>Customer-Centric</h4>
+                <p class="text-muted">Dedicated to exceptional service and support.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- CTA Section -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <div class="bg-primary text-white p-5 rounded-lg shadow text-center">
+                <h2 class="fw-bold mb-3">Ready to Transform Your Energy Future?</h2>
+                <p class="lead mb-4 col-lg-8 mx-auto">Contact us today to explore how our innovative solar energy solutions can optimize your energy operations and drive sustainability.</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="/contact" class="btn btn-light btn-lg px-4">Get a Free Consultation</a>
+                    <a href="/calculator" class="btn btn-outline-light btn-lg px-4">Solar Savings Calculator</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add this CSS to your stylesheet -->
+<style>
+    .bg-gradient-primary {
+        background: linear-gradient(135deg, #4e73df 0%, #224abe 100%);
+    }
+    
+    .rounded-lg {
+        border-radius: 0.5rem;
+    }
+    
+    .opacity-10 {
+        opacity: 0.1;
+    }
+    
+    .z-1 {
+        z-index: 1;
+    }
+    
+    .z-2 {
+        z-index: 2;
+    }
+    
+    .service-icon-bg {
+        width: 70px;
+        height: 70px;
+        background-color: #4e73df;
+    }
+    
+    .service-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-top: 4px solid transparent;
+    }
+    
+    .service-card:hover {
+        transform: translateY(-10px);
+        border-top: 4px solid #4e73df;
+    }
+    
+    .service-card-decoration {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100px;
+        height: 100px;
+        background-color: rgba(78, 115, 223, 0.05);
+        border-radius: 0 0 0 100%;
+        z-index: 0;
+    }
+    
+    .service-tabs .nav-link {
+        border-radius: 30px;
+        font-weight: 500;
+        color: #6c757d;
+        border: 1px solid #dee2e6;
+    }
+    
+    .service-tabs .nav-link.active {
+        background-color: #4e73df;
+        color: white;
+        border-color: #4e73df;
+    }
+    
+    .accordion-button:not(.collapsed) {
+        background-color: rgba(78, 115, 223, 0.1);
+        color: #4e73df;
+    }
+    
+    .accordion-button:focus {
+        box-shadow: none;
+        border-color: rgba(78, 115, 223, 0.25);
+    }
+    
+    /* Process number styling */
+    .process-number {
+        width: 50px;
+        height: 50px;
+    }
+</style>
 
 <%- include('partials/_footer.ejs') %>
