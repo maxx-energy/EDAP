@@ -66,6 +66,7 @@ export const getContactMessages = async (req, res, next) => {
         renderPage(res, 'dashboard/components/contactMessages', {
             messages: updatedMessages,
             user,
+            loggedUser
         });
     } catch (error) {
         next(error);
