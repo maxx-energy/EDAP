@@ -11,8 +11,15 @@ const renderPage = (res, page, data = {}) => {
 
 // Dashboard
 export const getDashboard = async (req, res, next) => {
+    const POWER_BI_EMBED_URL = process.env.POWER_BI_EMBED_URL;
+    const POWER_BI_REPORT_ID = process.env.POWER_BI_REPORT_ID;
+    const POWER_BI_ACCESS_TOKEN = process.env.POWER_BI_ACCESS_TOKEN;
     try {
-        renderPage(res, 'dashboard/dashboard');
+        renderPage(res, 'dashboard/dashboard', {
+            embedUrl: POWER_BI_EMBED_URL,
+            reportId: POWER_BI_REPORT_ID,
+            accessToken: POWER_BI_ACCESS_TOKEN,
+        });
     } catch (error) {
         next(error);
     }
@@ -66,7 +73,7 @@ export const getContactMessages = async (req, res, next) => {
         renderPage(res, 'dashboard/components/contactMessages', {
             messages: updatedMessages,
             user,
-            loggedUser
+            loggedUser,
         });
     } catch (error) {
         next(error);
