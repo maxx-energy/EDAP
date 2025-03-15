@@ -20,7 +20,7 @@
                 <img src="/images/MAXX-Energy-Logo-1B.png" alt="Maxx Energy Logo" style="height: 50px;">
             </div>
         </a>
-        <a href="/dashboard">Dashboard</a>
+        <a href="/dashboard" class="<%= (isUserSignedIn.permissions == 7) ? '' : 'd-none' %>">Dashboard</a>
         <a href="/dashboard/users" class="<%= (isUserSignedIn.permissions >= 6) ? '' : 'd-none' %>">Users</a>
         <a href="/dashboard/contact-messages" class="<%= (isUserSignedIn.permissions >= 6) ? '' : 'd-none' %>">Customer Inquiries</a>
         <a href="/dashboard/account">Account</a>
@@ -71,16 +71,16 @@
         <div id="toast-container" class="position-fixed top-50 start-50 translate-middle p-3" style="z-index: 1050;">
             <% if (messages.error) { %>
                 <div id="feedback-toast" class="toast align-items-center text-bg-danger" role="alert"
-                    aria-live="assertive" aria-atomic="true" data-bs-autohide="true" data-bs-delay="2000">
-                    <div class="d-flex">
-                        <div class="toast-body">
-                            <%= messages.error %>
-                        </div>
-                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
-                            aria-label="Close"></button>
-                    </div>
-                </div>
-                <% } %>
+                     aria-live="assertive" aria-atomic="true" data-bs-autohide="true" data-bs-delay="2000">
+                     <div class="d-flex">
+                         <div class="toast-body">
+                             <%= messages.error %>
+                         </div>
+                         <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                             aria-label="Close"></button>
+                     </div>
+                 </div>
+            <% } %>                
         </div>
         <script>
             document.addEventListener('DOMContentLoaded', function () {

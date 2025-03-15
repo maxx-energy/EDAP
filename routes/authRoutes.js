@@ -1,29 +1,63 @@
 import { Router } from 'express';
-import * as authController from '../controllers/authController.js';
+import AuthController from '../controllers/AuthController.js';
 import AuthMiddleware from '../middlewares/authMiddleware.js';
-import {
-    validateRegistration,
-    validateLogin,
-    validateForgotPassword,
-    validateResetPassword,
-    validateProfileUpdate,
-    handleValidationErrors,
-} from '../middlewares/validationMiddleware.js';
+import Validator from '../middlewares/validationMiddleware.js';
 import upload from '../middlewares/uploadMiddleware.js';
 
 const router = Router();
+const validator = new Validator();  // Create an instance of the Validator class
 
-router.post('/register',validateRegistration,handleValidationErrors('/login'),authController.registerUser);
-router.post('/login', validateLogin, handleValidationErrors('/login'), authController.loginUser);
-router.post('/update-profile',AuthMiddleware.hasPermission(2),upload.single('profileImage'),
-    validateProfileUpdate,
-    handleValidationErrors('/dashboard/account'),
-    authController.updateProfile
+// Register user
+router.post('/register', 
+    validator.validateRegistration(), 
+    validator.handleValidationErrors(), 
+    AuthController.registerUser
 );
-router.post('/delete-user', AuthMiddleware.hasPermission(6), authController.deleteUser);
-router.post('/logout', authController.logoutUser);
-router.post('/forgot-password',validateForgotPassword,handleValidationErrors('/forgot-password'),authController.forgotPassword);
-router.post('/reset-password/:token',validateResetPassword,handleValidationErrors('/reset-password/:token'),authController.resetPassword);
-router.get('/confirm-email/:token', authController.confirmEmail);
+
+// Login user
+router.post('/login', 
+    validator.validateLogin(), 
+    validator.handleValidationErrors(), 
+    AuthController.loginUser
+);
+
+// Update profile
+router.post('/update-profile', 
+    AuthMiddleware.hasPermission(2),
+    upload.single('profileImage'),
+    validator.validateProfileUpdate(), 
+    validator.handleValidationErrors(), 
+    AuthController.updateProfile
+);
+
+// Delete user
+router.post('/delete-user', 
+    AuthMiddleware.hasPermission(6), 
+    AuthController.deleteUser
+);
+
+// Logout user
+router.post('/logout', 
+    AuthController.logoutUser
+);
+
+// Forgot password
+router.post('/forgot-password', 
+    validator.validateForgotPassword(), 
+    validator.handleValidationErrors(), 
+    AuthController.forgotPassword
+);
+
+// Reset password
+router.post('/reset-password/:token', 
+    validator.validateResetPassword(), 
+    validator.handleValidationErrors(), 
+    AuthController.resetPassword
+);
+
+// Confirm email
+router.get('/confirm-email/:token', 
+    AuthController.confirmEmail
+);
 
 export default router;
