@@ -1,4 +1,4 @@
-<body class="d-flex flex-column min-vh-100 bg-light text-dark"> <!-- Ensures sticky footer -->
+<body class="d-flex flex-column min-vh-100 bg-light text-dark">
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -27,7 +27,7 @@
                         <a class="nav-link <%= page_name === 'faq' && 'active' %>" href="/faq">FAQ</a>
                     </li>
                 </ul>
-                <form class="d-flex" action="/search" method="GET">
+                <form class="d-flex">
                     <input class="form-control me-2" type="search" name="query" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-primary text-white" type="submit">Search</button>
                 </form>
@@ -35,3 +35,6 @@
             </div>
         </div>
     </nav>
+
+     <!-- Main content area start -->
+    <main class="flex-grow-1">

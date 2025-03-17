@@ -1,0 +1,75 @@
+.bg-gradient-primary {
+    background: linear-gradient(135deg, #4e73df 0%, #224abe 100%);
+}
+
+.rounded-lg {
+    border-radius: 0.5rem;
+}
+
+.opacity-10 {
+    opacity: 0.1;
+}
+
+.z-1 {
+    z-index: 1;
+}
+
+.z-2 {
+    z-index: 2;
+}
+
+.service-icon-bg {
+    width: 70px;
+    height: 70px;
+    background-color: #4e73df;
+}
+
+.service-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 4px solid transparent;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    border-top: 4px solid #4e73df;
+}
+
+.service-card-decoration {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(78, 115, 223, 0.05);
+    border-radius: 0 0 0 100%;
+    z-index: 0;
+}
+
+.service-tabs .nav-link {
+    border-radius: 30px;
+    font-weight: 500;
+    color: #6c757d;
+    border: 1px solid #dee2e6;
+}
+
+.service-tabs .nav-link.active {
+    background-color: #4e73df;
+    color: white;
+    border-color: #4e73df;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: rgba(78, 115, 223, 0.1);
+    color: #4e73df;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: rgba(78, 115, 223, 0.25);
+}
+
+/* Process number styling */
+.process-number {
+    width: 50px;
+    height: 50px;
+}

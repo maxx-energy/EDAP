@@ -1,1101 +1,413 @@
 <%- include('partials/_header.ejs') %>
-<%- include('partials/_navigator.ejs') %>
-<!-- Link to External CSS -->
-<link rel="stylesheet" href="/stylesheets/index.css">
-
-<!-- Google Fonts: Oswald for headings and Open Sans for body -->
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-
-<!-- Hero Carousel Section -->
-<section class="hero-container">
-  <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
-    <!-- Dot Indicators -->
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
-      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
-      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
-      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
-    </div>
-    <div class="carousel-inner">
-      <!-- Slide 1 -->
-      <div class="carousel-item active">
-        <img src="/images/1.jpeg" alt="Innovative Energy">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <h1>Innovative Energy</h1>
-          <p>Redefine your future with cutting-edge, sustainable power solutions.</p>
-          <div class="hero-buttons">
-            <a href="/faq" class="btn btn-primary">Learn More</a>
-            <a href="/contact" class="btn btn-secondary">Contact Us</a>
-          </div>
-        </div>
-      </div>
-      <!-- Slide 2 -->
-      <div class="carousel-item">
-        <img src="/images/2.jpeg" alt="Renewable Revolution">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <h1>Renewable Revolution</h1>
-          <p>Unleash nature's power for a cleaner, greener tomorrow.</p>
-          <div class="hero-buttons">
-            <a href="/faq" class="btn btn-primary">Learn More</a>
-            <a href="/contact" class="btn btn-secondary">Contact Us</a>
-          </div>
-        </div>
-      </div>
-      <!-- Slide 3 -->
-      <div class="carousel-item">
-        <img src="/images/3.jpeg" alt="Sustainable Solutions">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <h1>Sustainable Solutions</h1>
-          <p>Smart energy strategies powering responsible progress.</p>
-          <div class="hero-buttons">
-            <a href="/faq" class="btn btn-primary">Learn More</a>
-            <a href="/contact" class="btn btn-secondary">Contact Us</a>
-          </div>
-        </div>
-      </div>
-      <!-- Slide 4 -->
-      <div class="carousel-item">
-        <img src="/images/4.jpeg" alt="Clean Power, Clear Vision">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <h1>Clean Power, Clear Vision</h1>
-          <p>Transition to efficient, sustainable energy with visionary solutions.</p>
-          <div class="hero-buttons">
-            <a href="/faq" class="btn btn-primary">Learn More</a>
-            <a href="/contact" class="btn btn-secondary">Contact Us</a>
-          </div>
-        </div>
-      </div>
-      <!-- Slide 5 -->
-      <div class="carousel-item">
-        <img src="/images/5.jpeg" alt="Efficiency Unleashed">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <h1>Efficiency Unleashed</h1>
-          <p>Maximize performance with innovative, sustainable energy management.</p>
-          <div class="hero-buttons">
-            <a href="/faq" class="btn btn-primary">Learn More</a>
-            <a href="/contact" class="btn btn-secondary">Contact Us</a>
-          </div>
-        </div>
-      </div>
-      <!-- Slide 6 -->
-      <div class="carousel-item">
-        <img src="/images/6.jpeg" alt="Technology Forward">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <h1>Technology Forward</h1>
-          <p>Lead the charge with breakthrough innovations in energy solutions.</p>
-          <div class="hero-buttons">
-            <a href="/faq" class="btn btn-primary">Learn More</a>
-            <a href="/contact" class="btn btn-secondary">Contact Us</a>
-          </div>
-        </div>
-      </div>
-      <!-- Slide 7 -->
-      <div class="carousel-item">
-        <img src="/images/7.jpeg" alt="Empowering Progress">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <h1>Empowering Progress</h1>
-          <p>Fuel your ambition with innovative energy solutions that drive sustainable growth.</p>
-          <div class="hero-buttons">
-            <a href="/faq" class="btn btn-primary">Learn More</a>
-            <a href="/contact" class="btn btn-secondary">Contact Us</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Carousel Controls -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-</section>
-
-<!-- Company Information Section -->
-<section class="company-info-container">
-  <!-- Section Heading -->
-  <div class="section-heading text-center">
-    <h1 class="display-4 fw-bold">Powering Tomorrow's World</h1>
-    <div class="heading-underline"></div>
-    <p class="lead text-muted">Innovative, sustainable energy solutions for a brighter future</p>
-  </div>
-
-  <!-- Section 1: Introduction -->
-  <div class="info-section">
-    <div class="info-content">
-      <span class="section-badge">Our Vision</span>
-      <h2>Innovative Energy Solutions</h2>
-      <p>At MaxxEnergy, we're redefining the future with cutting-edge, sustainable power solutions. Our commitment to innovation drives us to develop technologies that meet the energy challenges of tomorrow.</p>
-      <div class="feature-list">
-        <div class="feature-item"><i class="bi bi-lightning-charge-fill"></i> Advanced Technology</div>
-        <div class="feature-item"><i class="bi bi-award-fill"></i> Industry Leading</div>
-        <div class="feature-item"><i class="bi bi-shield-check"></i> Reliable Solutions</div>
-      </div>
-      <a href="/about" class="btn btn-primary btn-lg btn-custom">
-        About Us <i class="bi bi-arrow-right"></i>
-      </a>
-    </div>
-    <div class="info-image">
-      <div class="image-wrapper">
-        <img src="/images/1.jpeg" alt="Innovative Energy Solutions" class="img-fluid rounded">
-        <div class="image-overlay">
-          <div class="overlay-content">
-            <span class="overlay-icon"><i class="bi bi-lightbulb-fill"></i></span>
-            <span class="overlay-text">Powering Innovation</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Section 2: Our Approach -->
-  <div class="info-section reverse">
-    <div class="info-content">
-      <span class="section-badge">Our Approach</span>
-      <h2>Sustainable Energy Strategy</h2>
-      <p>We believe in smart energy strategies that power responsible progress. Our solutions are designed with sustainability at their core, ensuring minimal environmental impact while maximizing efficiency.</p>
-      <div class="stats-container">
-        <div class="stat-item">
-          <div class="stat-number" data-count="85">0</div>
-          <div class="stat-label">Reduction in Carbon Footprint</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number" data-count="40">0</div>
-          <div class="stat-label">Countries Served</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number" data-count="95">0</div>
-          <div class="stat-label">Client Satisfaction</div>
-        </div>
-      </div>
-      <a href="/services" class="btn btn-primary btn-lg btn-custom">
-        Our Services <i class="bi bi-arrow-right"></i>
-      </a>
-    </div>
-    <div class="info-image">
-      <div class="image-wrapper">
-        <img src="/images/3.jpeg" alt="Sustainable Approach" class="img-fluid rounded">
-        <div class="image-overlay">
-          <div class="overlay-content">
-            <span class="overlay-icon"><i class="bi bi-leaf-fill"></i></span>
-            <span class="overlay-text">Eco-Friendly Solutions</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Section 3: Technology -->
-  <div class="info-section">
-    <div class="info-content">
-      <span class="section-badge">Our Technology</span>
-      <h2>Leading-Edge Innovation</h2>
-      <p>Lead the charge with our breakthrough innovations in energy solutions. We continuously invest in research and development to stay at the forefront of energy technology.</p>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h4>Research</h4>
-            <p>Continuous exploration of new energy frontiers</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h4>Development</h4>
-            <p>Transforming concepts into practical solutions</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h4>Implementation</h4>
-            <p>Seamless integration into existing infrastructure</p>
-          </div>
-        </div>
-      </div>
-      <a href="/technology" class="btn btn-primary btn-lg btn-custom">
-        Our Technology <i class="bi bi-arrow-right"></i>
-      </a>
-    </div>
-    <div class="info-image">
-      <div class="image-wrapper">
-        <img src="/images/6.jpeg" alt="Technology Forward" class="img-fluid rounded">
-        <div class="image-overlay">
-          <div class="overlay-content">
-            <span class="overlay-icon"><i class="bi bi-cpu-fill"></i></span>
-            <span class="overlay-text">Advanced Technology</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Section 4: Client Success -->
-  <div class="info-section reverse">
-    <div class="info-content">
-      <span class="section-badge">Success Stories</span>
-      <h2>Transforming Businesses</h2>
-      <p>Our clients trust us to deliver reliable, efficient energy solutions. Discover how we've helped businesses across various industries optimize their energy consumption and reduce costs.</p>
-      <div class="testimonial-carousel">
-        <div class="testimonial-item active">
-          <div class="testimonial-quote">
-            <i class="bi bi-quote"></i>
-            <p>"MaxxEnergy's solutions reduced our energy costs by 40% while helping us meet our sustainability goals."</p>
-            <div class="testimonial-author">
-              <strong>Sarah Johnson</strong> - CEO, GreenTech Industries
+    <%- include('partials/_navigator.ejs') %>
+        <!-- Hero Carousel Section -->
+        <section class="hero-container">
+            <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
+                <!-- Dot Indicators -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"
+                        aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3"
+                        aria-label="Slide 4"></button>
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="4"
+                        aria-label="Slide 5"></button>
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="5"
+                        aria-label="Slide 6"></button>
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="6"
+                        aria-label="Slide 7"></button>
+                </div>
+                <div class="carousel-inner">
+                    <!-- Slide 1 -->
+                    <div class="carousel-item active">
+                        <img src="/images/1.jpeg" alt="Innovative Energy">
+                        <div class="hero-overlay"></div>
+                        <div class="hero-content">
+                            <h1>Innovative Energy</h1>
+                            <p>Redefine your future with cutting-edge, sustainable power solutions.</p>
+                            <div class="hero-buttons">
+                                <a href="/faq" class="btn btn-primary">Learn More</a>
+                                <a href="/contact" class="btn btn-secondary">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="carousel-item">
+                        <img src="/images/2.jpeg" alt="Renewable Revolution">
+                        <div class="hero-overlay"></div>
+                        <div class="hero-content">
+                            <h1>Renewable Revolution</h1>
+                            <p>Unleash nature's power for a cleaner, greener tomorrow.</p>
+                            <div class="hero-buttons">
+                                <a href="/faq" class="btn btn-primary">Learn More</a>
+                                <a href="/contact" class="btn btn-secondary">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="carousel-item">
+                        <img src="/images/3.jpeg" alt="Sustainable Solutions">
+                        <div class="hero-overlay"></div>
+                        <div class="hero-content">
+                            <h1>Sustainable Solutions</h1>
+                            <p>Smart energy strategies powering responsible progress.</p>
+                            <div class="hero-buttons">
+                                <a href="/faq" class="btn btn-primary">Learn More</a>
+                                <a href="/contact" class="btn btn-secondary">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 4 -->
+                    <div class="carousel-item">
+                        <img src="/images/4.jpeg" alt="Clean Power, Clear Vision">
+                        <div class="hero-overlay"></div>
+                        <div class="hero-content">
+                            <h1>Clean Power, Clear Vision</h1>
+                            <p>Transition to efficient, sustainable energy with visionary solutions.</p>
+                            <div class="hero-buttons">
+                                <a href="/faq" class="btn btn-primary">Learn More</a>
+                                <a href="/contact" class="btn btn-secondary">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 5 -->
+                    <div class="carousel-item">
+                        <img src="/images/5.jpeg" alt="Efficiency Unleashed">
+                        <div class="hero-overlay"></div>
+                        <div class="hero-content">
+                            <h1>Efficiency Unleashed</h1>
+                            <p>Maximize performance with innovative, sustainable energy management.</p>
+                            <div class="hero-buttons">
+                                <a href="/faq" class="btn btn-primary">Learn More</a>
+                                <a href="/contact" class="btn btn-secondary">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 6 -->
+                    <div class="carousel-item">
+                        <img src="/images/6.jpeg" alt="Technology Forward">
+                        <div class="hero-overlay"></div>
+                        <div class="hero-content">
+                            <h1>Technology Forward</h1>
+                            <p>Lead the charge with breakthrough innovations in energy solutions.</p>
+                            <div class="hero-buttons">
+                                <a href="/faq" class="btn btn-primary">Learn More</a>
+                                <a href="/contact" class="btn btn-secondary">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 7 -->
+                    <div class="carousel-item">
+                        <img src="/images/7.jpeg" alt="Empowering Progress">
+                        <div class="hero-overlay"></div>
+                        <div class="hero-content">
+                            <h1>Empowering Progress</h1>
+                            <p>Fuel your ambition with innovative energy solutions that drive sustainable growth.</p>
+                            <div class="hero-buttons">
+                                <a href="/faq" class="btn btn-primary">Learn More</a>
+                                <a href="/contact" class="btn btn-secondary">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Carousel Controls -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
-          </div>
-        </div>
-        <div class="testimonial-item">
-          <div class="testimonial-quote">
-            <i class="bi bi-quote"></i>
-            <p>"The implementation was seamless, and the results exceeded our expectations."</p>
-            <div class="testimonial-author">
-              <strong>Michael Chen</strong> - Operations Director, Global Manufacturing
+        </section>
+
+        <!-- Company Information Section -->
+        <section class="company-info-container">
+            <!-- Section Heading -->
+            <div class="section-heading text-center">
+                <h1 class="display-4 fw-bold">Powering Tomorrow's World</h1>
+                <div class="heading-underline"></div>
+                <p class="lead text-muted">Innovative, sustainable energy solutions for a brighter future</p>
             </div>
-          </div>
-        </div>
-        <div class="testimonial-controls">
-          <button class="testimonial-prev"><i class="bi bi-chevron-left"></i></button>
-          <button class="testimonial-next"><i class="bi bi-chevron-right"></i></button>
-        </div>
-      </div>
-      <a href="/case-studies" class="btn btn-primary btn-lg btn-custom">
-        Case Studies <i class="bi bi-arrow-right"></i>
-      </a>
-    </div>
-    <div class="info-image">
-      <div class="image-wrapper">
-        <img src="/images/clients.jpg" alt="Client Success Stories" class="img-fluid rounded">
-        <div class="image-overlay">
-          <div class="overlay-content">
-            <span class="overlay-icon"><i class="bi bi-graph-up-arrow"></i></span>
-            <span class="overlay-text">Proven Results</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Section 5: Global Presence -->
-  <div class="info-section">
-    <div class="info-content">
-      <span class="section-badge">Global Reach</span>
-      <h2>Worldwide Energy Solutions</h2>
-      <p>With operations spanning across multiple regions, we're positioned to serve clients worldwide. Our global network allows us to understand diverse energy needs and deliver tailored solutions.</p>
-      <div class="global-presence">
-        <div class="region-marker" style="top: 30%; left: 25%;" data-region="North America">
-          <div class="marker-dot"></div>
-          <div class="region-info">
-            <h5>North America</h5>
-            <p>15+ years of operation</p>
-          </div>
-        </div>
-        <div class="region-marker" style="top: 40%; left: 45%;" data-region="Europe">
-          <div class="marker-dot"></div>
-          <div class="region-info">
-            <h5>Europe</h5>
-            <p>12 countries served</p>
-          </div>
-        </div>
-        <div class="region-marker" style="top: 55%; left: 70%;" data-region="Asia">
-          <div class="marker-dot"></div>
-          <div class="region-info">
-            <h5>Asia Pacific</h5>
-            <p>Fastest growing region</p>
-          </div>
-        </div>
-      </div>
-      <a href="/locations" class="btn btn-primary btn-lg btn-custom">
-        Our Locations <i class="bi bi-arrow-right"></i>
-      </a>
-    </div>
-    <div class="info-image">
-      <div class="image-wrapper map-container">
-        <img src="/images/maps.png" alt="Global Presence" class="img-fluid rounded">
-        <div class="pulse-marker" style="top: 30%; left: 25%;"></div>
-        <div class="pulse-marker" style="top: 40%; left: 45%;"></div>
-        <div class="pulse-marker" style="top: 55%; left: 70%;"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Section 6: Client Testimonials -->
-  <div class="info-section reverse">
-    <div class="info-content">
-      <span class="section-badge">Testimonials</span>
-      <h2>What Our Clients Say</h2>
-      <p>Don't just take our word for it. Hear from our satisfied clients about how our energy solutions have transformed their operations and contributed to their sustainability goals.</p>
-      <div class="client-logos">
-        <div class="logo-slider">
-          <div class="logo-item"><img src="/images/client-logo1.png" alt="Client Logo"></div>
-          <div class="logo-item"><img src="/images/client-logo2.png" alt="Client Logo"></div>
-          <div class="logo-item"><img src="/images/client-logo3.png" alt="Client Logo"></div>
-          <div class="logo-item"><img src="/images/client-logo4.png" alt="Client Logo"></div>
-          <div class="logo-item"><img src="/images/client-logo5.png" alt="Client Logo"></div>
-        </div>
-      </div>
-      <a href="/testimonials" class="btn btn-primary btn-lg btn-custom">
-        Read Testimonials <i class="bi bi-arrow-right"></i>
-      </a>
-    </div>
-    <div class="info-image">
-      <div class="image-wrapper">
-        <img src="/images/cl.jpeg" alt="Client Testimonials" class="img-fluid rounded">
-        <div class="image-overlay">
-          <div class="overlay-content">
-            <span class="overlay-icon"><i class="bi bi-people-fill"></i></span>
-            <span class="overlay-text">Trusted Partnerships</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Section 7: Contact Us -->
-  <div class="info-section cta-section">
-    <div class="info-content text-center">
-      <span class="section-badge">Get Started</span>
-      <h2>Ready to Transform Your Energy Strategy?</h2>
-      <p>Get in touch with our team of experts to discuss how we can help you achieve your energy goals. We're committed to providing personalized solutions that address your specific needs.</p>
-      <div class="cta-buttons">
-        <a href="/contact" class="btn btn-primary btn-lg btn-custom">
-          Contact Us <i class="bi bi-arrow-right"></i>
-        </a>
-        <a href="/demo" class="btn btn-outline-primary btn-lg">
-          Request Estimate <i class="bi bi-play-circle"></i>
-        </a>
-      </div>
-      <div class="contact-info">
-        <div class="contact-item">
-          <i class="bi bi-telephone-fill"></i> +1 (800) 555-0123
-        </div>
-        <div class="contact-item">
-          <i class="bi bi-envelope-fill"></i> info@Maxxenergy.com
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<style>
-/* Hero Carousel Styles - Fixed positioning */
-.hero-container {
-  position: relative;
-  margin-bottom: 3rem;
-}
-
-.carousel-item {
-  height: 100vh;
-  min-height: 1000px;
-  position: relative;
-}
-
-.carousel-item img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.2) 100%);
-}
-
-.hero-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 800px;
-  width: 80%;
-  color: white;
-  text-align: center;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-}
-
-.hero-content h1 {
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-.hero-content p {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
-}
-
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.carousel-indicators {
-  bottom: 30px;
-}
-
-.carousel-indicators button {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  margin: 0 6px;
-  background-color: rgba(255, 255, 255, 0.5);
-  border: none;
-}
-
-.carousel-indicators button.active {
-  width: 30px;
-  border-radius: 10px;
-  background-color: white;
-}
-
-/* Company Info Section Styles */
-.company-info-container {
-  padding: 5rem 0;
-  max-width: 1400px;
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-.section-heading {
-  margin-bottom: 5rem;
-}
-
-.heading-underline {
-  height: 4px;
-  width: 70px;
-  background: linear-gradient(90deg, #0d6efd, #6610f2);
-  margin: 1.5rem auto;
-  border-radius: 2px;
-}
-
-.info-section {
-  display: flex;
-  align-items: center;
-  margin-bottom: 8rem;
-  position: relative;
-  gap: 4rem;
-}
-
-.info-section.reverse {
-  flex-direction: row-reverse;
-}
-
-.info-content {
-  flex: 1;
-  padding: 2rem;
-  position: relative;
-  z-index: 2;
-}
-
-.info-image {
-  flex: 1;
-  padding: 1rem;
-  position: relative;
-}
-
-/* Section Badge */
-.section-badge {
-  display: inline-block;
-  background: linear-gradient(90deg, #0d6efd, #6610f2);
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 30px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-/* Image Styling */
-.image-wrapper {
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.image-wrapper:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-}
-
-.image-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.image-wrapper:hover img {
-  transform: scale(1.05);
-}
-
-/* Image Overlay */
-.image-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  display: flex;
-  align-items: flex-end;
-  padding: 1.5rem;
-}
-
-.image-wrapper:hover .image-overlay {
-  opacity: 1;
-}
-
-.overlay-content {
-  color: white;
-  display: flex;
-  align-items: center;
-}
-
-.overlay-icon {
-  font-size: 1.5rem;
-  margin-right: 0.75rem;
-}
-
-.overlay-text {
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
-/* Feature List */
-.feature-list {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 1.5rem 0;
-  gap: 1rem;
-}
-
-.feature-item {
-  background-color: rgba(13, 110, 253, 0.1);
-  color: #0d6efd;
-  padding: 0.5rem 1rem;
-  border-radius: 30px;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  transition: all 0.3s ease;
-}
-
-.feature-item:hover {
-  background-color: #0d6efd;
-  color: white;
-}
-
-.feature-item i {
-  margin-right: 0.5rem;
-}
-
-/* Stats Container */
-.stats-container {
-  display: flex;
-  justify-content: space-between;
-  margin: 2rem 0;
-  gap: 1rem;
-}
-
-.stat-item {
-  text-align: center;
-  padding: 1.5rem;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  flex: 1;
-}
-
-.stat-number {
-  font-size: 3rem;
-  font-weight: 700;
-  color: #0d6efd;
-  position: relative;
-}
-
-.stat-number:after {
-  content: "%";
-  font-size: 1.5rem;
-  position: absolute;
-  top: 0;
-  right: -20px;
-}
-
-.stat-item:nth-child(2) .stat-number:after {
-  content: "+";
-}
-
-.stat-label {
-  font-size: 1rem;
-  color: #6c757d;
-  margin-top: 0.5rem;
-  font-weight: 500;
-}
-
-/* Timeline */
-.timeline {
-  position: relative;
-  margin: 2rem 0;
-  padding-left: 2rem;
-}
-
-.timeline:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 2px;
-  background: linear-gradient(to bottom, #0d6efd, #6610f2);
-}
-
-.timeline-item {
-  position: relative;
-  margin-bottom: 1.5rem;
-  padding-bottom: 1rem;
-}
-
-.timeline-dot {
-  position: absolute;
-  left: -2.4rem;
-  top: 0.25rem;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background-color: #0d6efd;
-  border: 3px solid white;
-  box-shadow: 0 0 0 2px #0d6efd;
-}
-
-.timeline-content h4 {
-  margin-bottom: 0.5rem;
-  color: #0d6efd;
-}
-
-/* Testimonial Carousel */
-.testimonial-carousel {
-  position: relative;
-  margin: 2rem 0;
-  overflow: hidden;
-  background-color: #f8f9fa;
-  border-radius: 10px;
-  padding: 1rem;
-}
-
-.testimonial-item {
-  display: none;
-}
-
-.testimonial-item.active {
-  display: block;
-}
-
-.testimonial-quote {
-  background-color: white;
-  border-left: 4px solid #0d6efd;
-  padding: 1.5rem;
-  border-radius: 0 8px 8px 0;
-  position: relative;
-}
-
-.testimonial-quote i {
-  color: #0d6efd;
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  display: block;
-}
-
-.testimonial-author {
-  margin-top: 1rem;
-  font-style: italic;
-}
-
-.testimonial-controls {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 1rem;
-}
-
-.testimonial-controls button {
-  background: none;
-  border: none;
-  color: #0d6efd;
-  font-size: 1.25rem;
-  cursor: pointer;
-  padding: 0.25rem 0.5rem;
-}
-
-/* Global Presence Map */
-.map-container {
-  position: relative;
-}
-
-.global-presence {
-  position: relative;
-  height: 300px;
-  margin: 2rem 0;
-}
-
-.region-marker {
-  position: absolute;
-  cursor: pointer;
-  z-index: 3;
-}
-
-.marker-dot {
-  width: 12px;
-  height: 12px;
-  background-color: #0d6efd;
-  border-radius: 50%;
-  position: relative;
-  z-index: 2;
-}
-
-.region-info {
-  position: absolute;
-  top: -5px;
-  left: 20px;
-  background-color: white;
-  padding: 0.75rem;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  min-width: 150px;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  pointer-events: none;
-  z-index: 3;
-}
-
-.region-marker:hover .region-info {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.region-info h5 {
-  margin-bottom: 0.25rem;
-  color: #0d6efd;
-}
-
-.region-info p {
-  margin-bottom: 0;
-  font-size: 0.85rem;
-}
-
-.pulse-marker {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: rgba(13, 110, 253, 0.3);
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(0.5);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(2);
-    opacity: 0;
-  }
-}
-
-/* Client Logos */
-.client-logos {
-  margin: 2rem 0;
-  overflow: hidden;
-}
-
-.logo-slider {
-  display: flex;
-  animation: slide 20s linear infinite;
-}
-
-.logo-item {
-  flex: 0 0 auto;
-  padding: 0 1.5rem;
-}
-
-.logo-item img {
-  height: 40px;
-  filter: grayscale(100%);
-  opacity: 0.7;
-  transition: filter 0.3s ease, opacity 0.3s ease;
-}
-
-.logo-item:hover img {
-  filter: grayscale(0%);
-  opacity: 1;
-}
-
-@keyframes slide {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-/* CTA Section */
-.cta-section {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  border-radius: 20px;
-  padding: 3rem;
-  margin-top: 4rem;
-  display: block;
-}
-
-.cta-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin: 2rem 0;
-}
-
-.contact-info {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.contact-item {
-  display: flex;
-  align-items: center;
-  color: #6c757d;
-}
-
-.contact-item i {
-  margin-right: 0.5rem;
-  color: #0d6efd;
-}
-
-/* Custom Button */
-.btn-custom {
-  padding: 0.75rem 1.5rem;
-  border-radius: 50px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-}
-
-.btn-custom i {
-  margin-left: 0.5rem;
-  transition: transform 0.3s ease;
-}
-
-.btn-custom:hover i {
-  transform: translateX(5px);
-}
-
-/* Responsive Styles */
-@media (max-width: 992px) {
-  .carousel-item {
-    height: 60vh;
-  }
-  
-  .hero-content {
-    width: 90%;
-  }
-  
-  .hero-content h1 {
-    font-size: 2.5rem;
-  }
-  
-  .info-section {
-    flex-direction: column;
-    margin-bottom: 5rem;
-    gap: 2rem;
-  }
-  
-  .info-section.reverse {
-    flex-direction: column;
-  }
-  
-  .stats-container {
-    flex-wrap: wrap;
-  }
-  
-  .stat-item {
-    flex: 0 0 calc(50% - 1rem);
-    margin-bottom: 1rem;
-  }
-  
-  .cta-section {
-    padding: 2rem;
-  }
-  
-  .cta-buttons {
-    flex-direction: column;
-    gap: 1rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .carousel-item {
-    height: 50vh;
-  }
-  
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-  
-  .hero-content p {
-    font-size: 1rem;
-  }
-  
-  .hero-buttons {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  
-  .stat-item {
-    flex: 0 0 100%;
-  }
-  
-  .contact-info {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-}
-</style>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Initialize Bootstrap carousel
-  const carousel = document.getElementById('heroCarousel');
-  if (carousel) {
-    const bsCarousel = new bootstrap.Carousel(carousel, {
-      interval: 6000
-    });
-  }
-  
-  // Animate stats numbers
-  const stats = document.querySelectorAll('.stat-number');
-  stats.forEach(stat => {
-    const target = parseInt(stat.getAttribute('data-count'));
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateValue(stat, 0, target, 2000);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.5 });
-    
-    observer.observe(stat);
-  });
-  
-  function animateValue(element, start, end, duration) {
-    let startTimestamp = null;
-    const step = (timestamp) => {
-      if (!startTimestamp) startTimestamp = timestamp;
-      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-      element.textContent = Math.floor(start + progress * (end - start));
-      if (progress < 1) {
-        window.requestAnimationFrame(step);
-      }
-    };
-    window.requestAnimationFrame(step);
-  }
-  
-  // Testimonial carousel
-  const testimonials = document.querySelectorAll('.testimonial-item');
-  const prevBtn = document.querySelector('.testimonial-prev');
-  const nextBtn = document.querySelector('.testimonial-next');
-  let currentIndex = 0;
-  let testimonialInterval;
-  
-  function showTestimonial(index) {
-    testimonials.forEach(item => {
-      item.classList.remove('active');
-    });
-    testimonials[index].classList.add('active');
-  }
-  
-  function startTestimonialInterval() {
-    clearInterval(testimonialInterval);
-    testimonialInterval = setInterval(() => {
-      currentIndex = (currentIndex + 1) % testimonials.length;
-      showTestimonial(currentIndex);
-    }, 5000);
-  }
-  
-  if (prevBtn && nextBtn && testimonials.length > 0) {
-    prevBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
-      showTestimonial(currentIndex);
-      startTestimonialInterval();
-    });
-    
-    nextBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % testimonials.length;
-      showTestimonial(currentIndex);
-      startTestimonialInterval();
-    });
-    
-    // Start auto rotation
-    startTestimonialInterval();
-    
-    // Pause rotation on hover
-    const testimonialCarousel = document.querySelector('.testimonial-carousel');
-    if (testimonialCarousel) {
-      testimonialCarousel.addEventListener('mouseenter', () => {
-        clearInterval(testimonialInterval);
-      });
-      
-      testimonialCarousel.addEventListener('mouseleave', () => {
-        startTestimonialInterval();
-      });
-    }
-  }
-  
-  // Add smooth scrolling for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        window.scrollTo({
-          top: target.offsetTop - 80,
-          behavior: 'smooth'
-        });
-      }
-    });
-  });
-});
-</script>
+            <!-- Section 1: Introduction -->
+            <div class="info-section">
+                <div class="info-content">
+                    <span class="section-badge">Our Vision</span>
+                    <h2>Innovative Energy Solutions</h2>
+                    <p>At MaxxEnergy, we're redefining the future with cutting-edge, sustainable power solutions. Our
+                        commitment
+                        to innovation drives us to develop technologies that meet the energy challenges of tomorrow.</p>
+                    <div class="feature-list">
+                        <div class="feature-item"><i class="bi bi-lightning-charge-fill"></i> Advanced Technology</div>
+                        <div class="feature-item"><i class="bi bi-award-fill"></i> Industry Leading</div>
+                        <div class="feature-item"><i class="bi bi-shield-check"></i> Reliable Solutions</div>
+                    </div>
+                    <a href="/about" class="btn btn-primary btn-lg btn-custom">
+                        About Us <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="info-image">
+                    <div class="image-wrapper">
+                        <img src="/images/1.jpeg" alt="Innovative Energy Solutions" class="img-fluid rounded">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <span class="overlay-icon"><i class="bi bi-lightbulb-fill"></i></span>
+                                <span class="overlay-text">Powering Innovation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Our Approach -->
+            <div class="info-section reverse">
+                <div class="info-content">
+                    <span class="section-badge">Our Approach</span>
+                    <h2>Sustainable Energy Strategy</h2>
+                    <p>We believe in smart energy strategies that power responsible progress. Our solutions are designed
+                        with
+                        sustainability at their core, ensuring minimal environmental impact while maximizing efficiency.
+                    </p>
+                    <div class="stats-container">
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="85">0</div>
+                            <div class="stat-label">Reduction in Carbon Footprint</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="40">0</div>
+                            <div class="stat-label">Countries Served</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="95">0</div>
+                            <div class="stat-label">Client Satisfaction</div>
+                        </div>
+                    </div>
+                    <a href="/services" class="btn btn-primary btn-lg btn-custom">
+                        Our Services <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="info-image">
+                    <div class="image-wrapper">
+                        <img src="/images/3.jpeg" alt="Sustainable Approach" class="img-fluid rounded">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <span class="overlay-icon"><i class="bi bi-leaf-fill"></i></span>
+                                <span class="overlay-text">Eco-Friendly Solutions</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Technology -->
+            <div class="info-section">
+                <div class="info-content">
+                    <span class="section-badge">Our Technology</span>
+                    <h2>Leading-Edge Innovation</h2>
+                    <p>Lead the charge with our breakthrough innovations in energy solutions. We continuously invest in
+                        research
+                        and development to stay at the forefront of energy technology.</p>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4>Research</h4>
+                                <p>Continuous exploration of new energy frontiers</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4>Development</h4>
+                                <p>Transforming concepts into practical solutions</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4>Implementation</h4>
+                                <p>Seamless integration into existing infrastructure</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/technology" class="btn btn-primary btn-lg btn-custom">
+                        Our Technology <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="info-image">
+                    <div class="image-wrapper">
+                        <img src="/images/6.jpeg" alt="Technology Forward" class="img-fluid rounded">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <span class="overlay-icon"><i class="bi bi-cpu-fill"></i></span>
+                                <span class="overlay-text">Advanced Technology</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: Client Success -->
+            <div class="info-section reverse">
+                <div class="info-content">
+                    <span class="section-badge">Success Stories</span>
+                    <h2>Transforming Businesses</h2>
+                    <p>Our clients trust us to deliver reliable, efficient energy solutions. Discover how we've helped
+                        businesses
+                        across various industries optimize their energy consumption and reduce costs.</p>
+                    <div class="testimonial-carousel">
+                        <div class="testimonial-item active">
+                            <div class="testimonial-quote">
+                                <i class="bi bi-quote"></i>
+                                <p>"MaxxEnergy's solutions reduced our energy costs by 40% while helping us meet our
+                                    sustainability
+                                    goals."</p>
+                                <div class="testimonial-author">
+                                    <strong>Sarah Johnson</strong> - CEO, GreenTech Industries
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-item">
+                            <div class="testimonial-quote">
+                                <i class="bi bi-quote"></i>
+                                <p>"The implementation was seamless, and the results exceeded our expectations."</p>
+                                <div class="testimonial-author">
+                                    <strong>Michael Chen</strong> - Operations Director, Global Manufacturing
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-controls">
+                            <button class="testimonial-prev"><i class="bi bi-chevron-left"></i></button>
+                            <button class="testimonial-next"><i class="bi bi-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    <a href="/case-studies" class="btn btn-primary btn-lg btn-custom">
+                        Case Studies <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="info-image">
+                    <div class="image-wrapper">
+                        <img src="/images/clients.jpg" alt="Client Success Stories" class="img-fluid rounded">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <span class="overlay-icon"><i class="bi bi-graph-up-arrow"></i></span>
+                                <span class="overlay-text">Proven Results</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5: Global Presence -->
+            <div class="info-section">
+                <div class="info-content">
+                    <span class="section-badge">Global Reach</span>
+                    <h2>Worldwide Energy Solutions</h2>
+                    <p>With operations spanning across multiple regions, we're positioned to serve clients worldwide.
+                        Our global
+                        network allows us to understand diverse energy needs and deliver tailored solutions.</p>
+                    <div class="global-presence">
+                        <div class="region-marker" style="top: 30%; left: 25%;" data-region="North America">
+                            <div class="marker-dot"></div>
+                            <div class="region-info">
+                                <h5>North America</h5>
+                                <p>15+ years of operation</p>
+                            </div>
+                        </div>
+                        <div class="region-marker" style="top: 40%; left: 45%;" data-region="Europe">
+                            <div class="marker-dot"></div>
+                            <div class="region-info">
+                                <h5>Europe</h5>
+                                <p>12 countries served</p>
+                            </div>
+                        </div>
+                        <div class="region-marker" style="top: 55%; left: 70%;" data-region="Asia">
+                            <div class="marker-dot"></div>
+                            <div class="region-info">
+                                <h5>Asia Pacific</h5>
+                                <p>Fastest growing region</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/locations" class="btn btn-primary btn-lg btn-custom">
+                        Our Locations <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="info-image">
+                    <div class="image-wrapper map-container">
+                        <img src="/images/maps.png" alt="Global Presence" class="img-fluid rounded">
+                        <div class="pulse-marker" style="top: 30%; left: 25%;"></div>
+                        <div class="pulse-marker" style="top: 40%; left: 45%;"></div>
+                        <div class="pulse-marker" style="top: 55%; left: 70%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 6: Client Testimonials -->
+            <div class="info-section reverse">
+                <div class="info-content">
+                    <span class="section-badge">Testimonials</span>
+                    <h2>What Our Clients Say</h2>
+                    <p>Don't just take our word for it. Hear from our satisfied clients about how our energy solutions
+                        have
+                        transformed their operations and contributed to their sustainability goals.</p>
+                    <div class="client-logos">
+                        <div class="logo-slider">
+                            <div class="logo-item"><i class="bi bi-twitter-x"></i></div>
+                            <div class="logo-item"><i class="bi bi-facebook"></i></div>
+                            <div class="logo-item"><i class="bi bi-instagram"></i></div>
+                            <div class="logo-item"><i class="bi bi-linkedin"></i></div>
+                            <div class="logo-item"><i class="bi bi-reddit"></i></div>
+                        </div>
+                    </div>
+                    <a href="/testimonials" class="btn btn-primary btn-lg btn-custom">
+                        Read Testimonials <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="info-image">
+                    <div class="image-wrapper">
+                        <img src="/images/cl.jpeg" alt="Client Testimonials" class="img-fluid rounded">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <span class="overlay-icon"><i class="bi bi-people-fill"></i></span>
+                                <span class="overlay-text">Trusted Partnerships</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 7: Contact Us -->
+            <div class="info-section cta-section">
+                <div class="info-content text-center">
+                    <span class="section-badge">Get Started</span>
+                    <h2>Ready to Transform Your Energy Strategy?</h2>
+                    <p>Get in touch with our team of experts to discuss how we can help you achieve your energy goals.
+                        We're
+                        committed to providing personalized solutions that address your specific needs.</p>
+                    <div class="cta-buttons">
+                        <a href="/contact" class="btn btn-primary btn-lg btn-custom">
+                            Contact Us <i class="bi bi-arrow-right"></i>
+                        </a>
+                        <a href="/demo" class="btn btn-outline-primary btn-lg">
+                            Request Estimate <i class="bi bi-play-circle"></i>
+                        </a>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="bi bi-telephone-fill"></i> +1 (800) 555-0123
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-envelope-fill"></i> info@Maxxenergy.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 <%- include('partials/_footer.ejs') %>

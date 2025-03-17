@@ -1,0 +1,200 @@
+/* Footer Styles */
+.footer-area {
+    background-color: #343a40;
+    padding: 15px;
+    color: #fff;
+    font-size: 14px;
+}
+
+.subscribe-form {
+    display: flex;
+    max-width: 300px;
+    margin: auto;
+}
+
+.subscribe-form input {
+    flex: 1;
+    padding: 6px;
+    border: 1px solid #555;
+    border-right: 0;
+    border-radius: 4px 0 0 4px;
+    background-color: #fff;
+    color: #000;
+}
+
+.subscribe-form button {
+    border: none;
+    background: #212529;
+    color: #fff;
+    padding: 0 10px;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.social-icons {
+    display: inline-flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.social-icons a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1rem;
+    transition: color 0.2s ease;
+}
+
+.social-icons a:hover {
+    color: #adb5bd;
+}
+
+.bottom-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.bottom-links button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.bottom-links button:hover {
+    color: #adb5bd;
+}
+
+.footer-area .row {
+    margin-bottom: 8px;
+    /* Add this to reduce space between rows */
+}
+
+.footer-area .mb-4 {
+    margin-bottom: 1rem !important;
+    /* Reduce from default 1.5rem */
+}
+
+/* Chatbot Styles */
+.chat-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #0d6efd;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.chat-button:hover {
+    background-color: #0b5ed7;
+    transform: scale(1.05);
+}
+
+.chat-container {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 350px;
+    height: 500px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    overflow: hidden;
+    display: none;
+    transition: all 0.3s ease;
+}
+
+.chat-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Logo Animation Styles */
+.logo-container {
+    display: inline-block;
+    position: relative;
+}
+
+.animated-logo {
+    max-width: 120px;
+    transition: transform 0.5s ease;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+        filter: brightness(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+}
+
+/* Floating animation */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Glow animation */
+@keyframes glow {
+    0% {
+        filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+    }
+
+    100% {
+        filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
+    }
+}
+
+/* Apply the animation - choose one of these */
+.animated-logo {
+    animation: pulse 3s infinite ease-in-out;
+    /* Uncomment one of these instead if you prefer a different animation */
+    /* animation: float 3s infinite ease-in-out; */
+    /* animation: glow 3s infinite ease-in-out; */
+}
+
+/* Hover effect */
+.logo-container:hover .animated-logo {
+    animation-play-state: paused;
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
