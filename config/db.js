@@ -1,3 +1,4 @@
+import fs from 'fs';
 import mysql from 'mysql2';
 import 'dotenv/config';
 import { createTunnel } from 'tunnel-ssh';
@@ -13,11 +14,10 @@ const serverOptions = {
 
 const sshOptions = {
     host: process.env.SSH_HOST,
-    port: 22, // Default SSH port
+    port: 22,
     username: process.env.SSH_USER,
-    password: process.env.SSH_PASSWORD,
+    privateKey: fs.readFileSync(process.env.SSH_PRIVATE_KEY_PATH), // Load the private key
 };
-
 const forwardOptions = {
     srcAddr: '127.0.0.1', // Local address for MySQL connection
     srcPort: 3307, // Local port
