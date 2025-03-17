@@ -1,308 +1,338 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>MaxxEnergy Dark Footer with AI Chatbot</title>
-  <!-- Bootstrap CSS -->
-  <link 
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
-    rel="stylesheet"
-  >
-  <!-- Bootstrap Icons -->
-  <link 
-    rel="stylesheet" 
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
-  >
-  <!-- Google Fonts -->
-  <link 
-    href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" 
-    rel="stylesheet"
-  >
-  <style>
+<style>
     /* Footer Styles */
     .footer-area {
-      background-color: #343a40;
-      padding: 20px 0;
-      color: #fff;
-      font-size: 14px;
+        background-color: #343a40;
+        padding: 20px 0;
+        color: #fff;
+        font-size: 14px;
     }
-    
+
     .subscribe-form {
-      display: flex;
-      max-width: 300px;
-      margin: auto;
+        display: flex;
+        max-width: 300px;
+        margin: auto;
     }
-    
+
     .subscribe-form input {
-      flex: 1;
-      padding: 8px;
-      border: 1px solid #555;
-      border-right: 0;
-      border-radius: 4px 0 0 4px;
-      background-color: #fff;
-      color: #000;
+        flex: 1;
+        padding: 8px;
+        border: 1px solid #555;
+        border-right: 0;
+        border-radius: 4px 0 0 4px;
+        background-color: #fff;
+        color: #000;
     }
-    
+
     .subscribe-form button {
-      border: none;
-      background: #212529;
-      color: #fff;
-      padding: 0 12px;
-      border-radius: 0 4px 4px 0;
-      cursor: pointer;
+        border: none;
+        background: #212529;
+        color: #fff;
+        padding: 0 12px;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
     }
-    
+
     .social-icons {
-      display: inline-flex;
-      gap: 0.5rem;
-      justify-content: center;
+        display: inline-flex;
+        gap: 0.5rem;
+        justify-content: center;
     }
-    
+
     .social-icons a {
-      text-decoration: none;
-      color: #fff;
-      font-size: 1.25rem;
-      transition: color 0.2s ease;
+        text-decoration: none;
+        color: #fff;
+        font-size: 1.25rem;
+        transition: color 0.2s ease;
     }
-    
+
     .social-icons a:hover {
-      color: #adb5bd;
+        color: #adb5bd;
     }
-    
+
     .bottom-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 15px;
     }
-    
+
     .bottom-links button {
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 14px;
-      cursor: pointer;
-      transition: color 0.2s ease;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 14px;
+        cursor: pointer;
+        transition: color 0.2s ease;
     }
-    
+
     .bottom-links button:hover {
-      color: #adb5bd;
+        color: #adb5bd;
     }
 
 
     /* Chatbot Styles */
     .chat-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background-color: #0d6efd;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      z-index: 999;
-      border: none;
-      transition: all 0.3s ease;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: #0d6efd;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        border: none;
+        transition: all 0.3s ease;
     }
 
 
     .chat-button:hover {
-      background-color: #0b5ed7;
-      transform: scale(1.05);
+        background-color: #0b5ed7;
+        transform: scale(1.05);
     }
 
 
     .chat-container {
-      position: fixed;
-      bottom: 90px;
-      right: 20px;
-      width: 350px;
-      height: 500px;
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      z-index: 1000;
-      overflow: hidden;
-      display: none;
-      transition: all 0.3s ease;
+        position: fixed;
+        bottom: 90px;
+        right: 20px;
+        width: 350px;
+        height: 500px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+        overflow: hidden;
+        display: none;
+        transition: all 0.3s ease;
     }
 
 
     .chat-iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
+        width: 100%;
+        height: 100%;
+        border: none;
     }
-    
+
     /* Logo Animation Styles */
     .logo-container {
-      display: inline-block;
-      position: relative;
+        display: inline-block;
+        position: relative;
     }
-    
+
     .animated-logo {
-      transition: transform 0.5s ease;
+        transition: transform 0.5s ease;
     }
-    
+
     /* Pulse animation */
     @keyframes pulse {
-      0% {
-        transform: scale(1);
-        filter: brightness(1);
-      }
-      50% {
-        transform: scale(1.05);
-        filter: brightness(1.2);
-      }
-      100% {
-        transform: scale(1);
-        filter: brightness(1);
-      }
+        0% {
+            transform: scale(1);
+            filter: brightness(1);
+        }
+
+        50% {
+            transform: scale(1.05);
+            filter: brightness(1.2);
+        }
+
+        100% {
+            transform: scale(1);
+            filter: brightness(1);
+        }
     }
-    
+
     /* Floating animation */
     @keyframes float {
-      0% {
-        transform: translateY(0px);
-      }
-      50% {
-        transform: translateY(-5px);
-      }
-      100% {
-        transform: translateY(0px);
-      }
+        0% {
+            transform: translateY(0px);
+        }
+
+        50% {
+            transform: translateY(-5px);
+        }
+
+        100% {
+            transform: translateY(0px);
+        }
     }
-    
+
     /* Glow animation */
     @keyframes glow {
-      0% {
-        filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
-      }
-      50% {
-        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
-      }
-      100% {
-        filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
-      }
+        0% {
+            filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
+        }
+
+        50% {
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+        }
+
+        100% {
+            filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
+        }
     }
-    
+
     /* Apply the animation - choose one of these */
     .animated-logo {
-      animation: pulse 3s infinite ease-in-out;
-      /* Uncomment one of these instead if you prefer a different animation */
-      /* animation: float 3s infinite ease-in-out; */
-      /* animation: glow 3s infinite ease-in-out; */
+        animation: pulse 3s infinite ease-in-out;
+        /* Uncomment one of these instead if you prefer a different animation */
+        /* animation: float 3s infinite ease-in-out; */
+        /* animation: glow 3s infinite ease-in-out; */
     }
-    
+
     /* Hover effect */
     .logo-container:hover .animated-logo {
-      animation-play-state: paused;
-      transform: scale(1.1);
-      filter: brightness(1.2);
+        animation-play-state: paused;
+        transform: scale(1.1);
+        filter: brightness(1.2);
     }
-  </style>
+</style>
 </head>
+
 <body>
+    <!-- Footer Start -->
+    <footer class="footer-area">
+        <div class="container">
+            <!-- Row 1: Subscription, Logo, Social Icons -->
+            <div class="row align-items-center mb-4">
+                <!-- Subscription Form (Left) -->
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <div class="subscribe-form">
+                        <input type="email" placeholder="Enter your email">
+                        <button type="submit">
+                            <i class="bi bi-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Logo (Center) with Animation -->
+                <div class="col-md-4 text-center mb-3 mb-md-0">
+                    <div class="logo-container">
+                        <img src="/images/MAXX-Energy-Logo-1B.png" alt="MaxxEnergy Logo" class="animated-logo"
+                            style="max-width: 150px;">
+                    </div>
+                </div>
+
+                <!-- Social Icons (Right) -->
+                <div class="col-md-4 text-md-end text-center">
+                    <div class="social-icons">
+                        <a href="https://x.com/MaxxTechnology" target="_blank"><i class="bi bi-twitter-x"></i></a>
+                        <a href="https://www.facebook.com/maxxpotentialllc/" target="_blank"><i
+                                class="bi bi-facebook"></i></a>
+                        <a href="https://www.linkedin.com/company/maxx-potential" target="_blank"><i
+                                class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 2: Clickable Modal Links -->
+            <div class="row mb-3">
+                <div class="col text-center bottom-links">
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy &
+                        Policy</button>
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#termsModal">Terms</button>
+                    <a href="/contact" class="btn btn-link text-white text-decoration-none">Contact</a>
+                    <a href="/about" class="btn btn-link text-white text-decoration-none">About</a>
+                </div>
+            </div>
 
 
-<!-- Footer Start -->
-<footer class="footer-area">
-  <div class="container">
-    <!-- Row 1: Subscription, Logo, Social Icons -->
-    <div class="row align-items-center mb-4">
-      <!-- Subscription Form (Left) -->
-      <div class="col-md-4 mb-3 mb-md-0">
-        <div class="subscribe-form">
-          <input type="email" placeholder="Enter your email">
-          <button type="submit">
-            <i class="bi bi-arrow-right"></i>
-          </button>
+            <!-- Row 3: Copyright -->
+            <div class="row">
+                <div class="col text-center">
+                    © <%= new Date().getFullYear() %> MaxxEnergy. All rights reserved.
+                </div>
+            </div>
         </div>
-      </div>
-      <!-- Logo (Center) with Animation -->
-      <div class="col-md-4 text-center mb-3 mb-md-0">
-        <div class="logo-container">
-          <img src="/images/MAXX-Energy-Logo-1B.png" alt="MaxxEnergy Logo" class="animated-logo" style="max-width: 150px;">
+    </footer>
+    <!-- Footer End -->
+
+
+    <!-- Chat Button -->
+    <button class="chat-button" id="chatButton">
+        <i class="bi bi-chat-dots-fill" style="font-size: 24px;"></i>
+    </button>
+
+
+    <!-- Chat Container -->
+    <div class="chat-container" id="chatContainer">
+        <iframe src="https://t3.chat/chat" class="chat-iframe" title="T3 AI Chat"></iframe>
+    </div>
+
+    <!-- Modals Start -->
+    <div class="modal fade text-black" id="privacyModal" tabindex="-1" aria-labelledby="privacyModal"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header justify-content-center">
+                    <h3 class="modal-title text-center" id="privacyModal">Privacy Notice</h3>
+                    <!-- Larger, bold title -->
+                    <button type="button" class="btn-close position-absolute end-0 me-3" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, totam vitae reprehenderit
+                        ullam, nemo eaque maiores provident debitis ad ipsam dolor, vero ratione eos perferendis ducimus
+                        odit aperiam unde? Pariatur.</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-secondary px-4 py-2" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
-      </div>
-      <!-- Social Icons (Right) -->
-      <div class="col-md-4 text-md-end text-center">
-        <div class="social-icons">
-          <a href="https://x.com/MaxxTechnology" target="_blank"><i class="bi bi-twitter-x"></i></a>
-          <a href="https://www.facebook.com/maxxpotentialllc/" target="_blank"><i class="bi bi-facebook"></i></a>
-          <a href="https://www.linkedin.com/company/maxx-potential" target="_blank"><i class="bi bi-linkedin"></i></a>
+    </div>
+
+    <!-- Terms & Conditions Modal -->
+    <div class="modal fade text-black" id="termsModal" tabindex="-1" aria-labelledby="termsModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header justify-content-center">
+                    <h3 class="modal-title text-center" id="termsModal">Terms & Conditions</h3>
+                    <button type="button" class="btn-close position-absolute end-0 me-3" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, officia voluptatem vero...</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-secondary px-4 py-2" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-    
-    <!-- Row 2: Clickable Modal Links -->
-    <div class="row mb-3">
-      <div class="col text-center bottom-links">
-        <button type="button" data-bs-toggle="modal" data-bs-target="#termsModal">Terms</button>
-        <button type="button" data-bs-toggle="modal" data-bs-target="#aboutModal">About</button>
-        <button type="button" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy</button>
-        <button type="button" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</button>
-        <button type="button" data-bs-toggle="modal" data-bs-target="#careersModal">Careers</button>
-        <button type="button" data-bs-toggle="modal" data-bs-target="#personalInfoModal">Personal Information Request</button>
-        <button type="button" data-bs-toggle="modal" data-bs-target="#copyrightModal">Copyright Act</button>
-        <button type="button" data-bs-toggle="modal" data-bs-target="#policyModal">Policy</button>
-        <button type="button" data-bs-toggle="modal" data-bs-target="#sitemapModal">Sitemap</button>
-        <button type="button" data-bs-toggle="modal" data-bs-target="#browserReqModal">Browser Requirements</button>
-      </div>
-    </div>
-    
-    <!-- Row 3: Copyright -->
-    <div class="row">
-      <div class="col text-center">
-        © <%= new Date().getFullYear() %> MaxxEnergy. All rights reserved.
-      </div>
-    </div>
-  </div>
-</footer>
-<!-- Footer End -->
+
+    <!-- Modals End -->
 
 
-<!-- Chat Button -->
-<button class="chat-button" id="chatButton">
-  <i class="bi bi-chat-dots-fill" style="font-size: 24px;"></i>
-</button>
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="javascripts/script.js"></script>
 
+    <!-- Chat Toggle Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const chatButton = document.getElementById('chatButton');
+            const chatContainer = document.getElementById('chatContainer');
 
-<!-- Chat Container -->
-<div class="chat-container" id="chatContainer">
-  <iframe src="https://t3.chat/chat" class="chat-iframe" title="T3 AI Chat"></iframe>
-</div>
-
-
-<!-- Bootstrap JS Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<script src="javascripts/script.js"></script>
-
-<!-- Chat Toggle Script -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const chatButton = document.getElementById('chatButton');
-    const chatContainer = document.getElementById('chatContainer');
-    
-    chatButton.addEventListener('click', function() {
-      if (chatContainer.style.display === 'none' || chatContainer.style.display === '') {
-        chatContainer.style.display = 'block';
-        chatButton.innerHTML = '<i class="bi bi-x-lg" style="font-size: 24px;"></i>';
-      } else {
-        chatContainer.style.display = 'none';
-        chatButton.innerHTML = '<i class="bi bi-chat-dots-fill" style="font-size: 24px;"></i>';
-      }
-    });
-  });
-</script>
+            chatButton.addEventListener('click', function () {
+                if (chatContainer.style.display === 'none' || chatContainer.style.display === '') {
+                    chatContainer.style.display = 'block';
+                    chatButton.innerHTML = '<i class="bi bi-x-lg" style="font-size: 24px;"></i>';
+                } else {
+                    chatContainer.style.display = 'none';
+                    chatButton.innerHTML = '<i class="bi bi-chat-dots-fill" style="font-size: 24px;"></i>';
+                }
+            });
+        });
+    </script>
 
 
 </body>
+
 </html>
