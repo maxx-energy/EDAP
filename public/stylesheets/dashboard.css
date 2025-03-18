@@ -1,6 +1,7 @@
 /* dashboard */
 body {
     display: flex;
+    overflow-x: hidden;
 }
 
 .sidebar {
@@ -14,6 +15,7 @@ body {
     left: 0;
     top: 0;
     z-index: 1000;
+    overflow-y: auto;
 }
 
 .sidebar a {
@@ -32,7 +34,7 @@ body {
     padding: 20px;
     margin-left: 250px;
     transition: margin-left 0.3s;
-    width: 100%;
+    width: calc(100% - 250px);
 }
 
 .navbar {
@@ -45,15 +47,43 @@ body {
 
 .content.expanded {
     margin-left: 0;
+    width: 100%;
 }
 
-@media (max-width: 768px) {
+/* Overlay when sidebar is active on mobile */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.sidebar-overlay.active {
+    display: block;
+}
+
+@media (max-width: 992px) {
     .sidebar {
         left: -250px;
     }
 
+    .sidebar.mobile-active {
+        left: 0;
+    }
+
     .content {
         margin-left: 0;
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .content {
+        padding: 10px;
     }
 }
 

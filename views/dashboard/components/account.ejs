@@ -228,103 +228,103 @@
 
         <%- include('../dashboardPartials/_dashboardFooter.ejs') %>
 
-            <!-- Simplified Profile Management Script -->
-            <script>
-                let editingMode = false;
-                const toggleEditBtn = document.getElementById('toggleEditBtn');
-                const formInputs = document.querySelectorAll('#profileForm input');
-                const userNameDisplay = document.getElementById('userNameDisplay');
-                const profileForm = document.getElementById('profileForm');
-                const profilePicOverlay = document.getElementById('profilePicOverlay');
-                const profileImageInput = document.getElementById('profileImageInput');
-                const profileImagePreview = document.getElementById('profileImagePreview');
+        <!-- Simplified Profile Management Script -->
+        <script>
+            let editingMode = false;
+            const toggleEditBtn = document.getElementById('toggleEditBtn');
+            const formInputs = document.querySelectorAll('#profileForm input');
+            const userNameDisplay = document.getElementById('userNameDisplay');
+            const profileForm = document.getElementById('profileForm');
+            const profilePicOverlay = document.getElementById('profilePicOverlay');
+            const profileImageInput = document.getElementById('profileImageInput');
+            const profileImagePreview = document.getElementById('profileImagePreview');
 
-                // Preview profile image when selected
-                profileImageInput.addEventListener('change', function() {
-                    if (this.files && this.files[0]) {
-                        const reader = new FileReader();
-                        
-                        reader.onload = function(e) {
-                            profileImagePreview.src = e.target.result;
-                        }
-                        
-                        reader.readAsDataURL(this.files[0]);
+            // Preview profile image when selected
+            profileImageInput.addEventListener('change', function() {
+                if (this.files && this.files[0]) {
+                    const reader = new FileReader();
+                    
+                    reader.onload = function(e) {
+                        profileImagePreview.src = e.target.result;
                     }
-                });
-
-                // Toggle editing mode on button click
-                toggleEditBtn.addEventListener('click', () => {
-                    if (!editingMode) {
-                        // Enable editing mode
-                        editingMode = true;
-                        toggleEditBtn.innerHTML = '<i class="bi bi-check-lg d-md-inline"></i><span>Save Changes</span>';
-                        toggleEditBtn.classList.remove('btn-primary');
-                        toggleEditBtn.classList.add('btn-success');
-                        profilePicOverlay.style.display = 'flex';
-
-                        // Enable form fields except email
-                        formInputs.forEach(input => {
-                            if (input.id === 'email') return;
-
-                            if (input.type === 'password') {
-                                input.removeAttribute('readonly');
-                            } else if (input.type !== 'hidden' && input.type !== 'file') {
-                                input.disabled = false;
-                            }
-                        });
-                    } else {
-                        // Submit the form to backend
-                        profileForm.submit();
-
-                        // Reset UI
-                        editingMode = false;
-                        toggleEditBtn.innerHTML = '<i class="bi bi-pencil-fill d-md-inline"></i><span>Edit</span>';
-                        toggleEditBtn.classList.remove('btn-success');
-                        toggleEditBtn.classList.add('btn-primary');
-                        profilePicOverlay.style.display = 'none';
-                    }
-                });
-                // Toggle password visibility function
-                function togglePassword(inputId, iconSpan) {
-                    const input = document.getElementById(inputId);
-                    const icon = iconSpan.querySelector('i');
-
-                    if (input.type === 'password') {
-                        input.type = 'text';
-                        icon.classList.remove('bi-eye-fill');
-                        icon.classList.add('bi-eye-slash-fill');
-                    } else {
-                        input.type = 'password';
-                        icon.classList.remove('bi-eye-slash-fill');
-                        icon.classList.add('bi-eye-fill');
-                    }
+                    
+                    reader.readAsDataURL(this.files[0]);
                 }
+            });
 
-                // Keyboard shortcut - Escape to cancel editing
-                document.addEventListener('keydown', function (e) {
-                    if (e.key === 'Escape' && editingMode) {
-                        // Reset the form
-                        profileForm.reset();
-                        
-                        // Reset profile image preview to original
-                        profileImagePreview.src = "/uploads/<%= user.profile_image || 'profile.png' %>";
+            // Toggle editing mode on button click
+            toggleEditBtn.addEventListener('click', () => {
+                if (!editingMode) {
+                    // Enable editing mode
+                    editingMode = true;
+                    toggleEditBtn.innerHTML = '<i class="bi bi-check-lg d-md-inline"></i><span>Save Changes</span>';
+                    toggleEditBtn.classList.remove('btn-primary');
+                    toggleEditBtn.classList.add('btn-success');
+                    profilePicOverlay.style.display = 'flex';
 
-                        // Exit edit mode
-                        editingMode = false;
-                        toggleEditBtn.innerHTML = '<i class="bi bi-pencil-fill d-md-inline"></i><span>Edit</span>';
-                        toggleEditBtn.classList.remove('btn-success');
-                        toggleEditBtn.classList.add('btn-primary');
-                        profilePicOverlay.style.display = 'none';
+                    // Enable form fields except email
+                    formInputs.forEach(input => {
+                        if (input.id === 'email') return;
 
-                        // Disable all form fields
-                        formInputs.forEach(input => {
-                            if (input.type === 'password') {
-                                input.setAttribute('readonly', true);
-                            } else if (input.type !== 'hidden' && input.type !== 'file') {
-                                input.disabled = true;
-                            }
-                        });
-                    }
-                });
-            </script>
-            <% } %>
+                        if (input.type === 'password') {
+                            input.removeAttribute('readonly');
+                        } else if (input.type !== 'hidden' && input.type !== 'file') {
+                            input.disabled = false;
+                        }
+                    });
+                } else {
+                    // Submit the form to backend
+                    profileForm.submit();
+
+                    // Reset UI
+                    editingMode = false;
+                    toggleEditBtn.innerHTML = '<i class="bi bi-pencil-fill d-md-inline"></i><span>Edit</span>';
+                    toggleEditBtn.classList.remove('btn-success');
+                    toggleEditBtn.classList.add('btn-primary');
+                    profilePicOverlay.style.display = 'none';
+                }
+            });
+            // Toggle password visibility function
+            function togglePassword(inputId, iconSpan) {
+                const input = document.getElementById(inputId);
+                const icon = iconSpan.querySelector('i');
+
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('bi-eye-fill');
+                    icon.classList.add('bi-eye-slash-fill');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('bi-eye-slash-fill');
+                    icon.classList.add('bi-eye-fill');
+                }
+            }
+
+            // Keyboard shortcut - Escape to cancel editing
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && editingMode) {
+                    // Reset the form
+                    profileForm.reset();
+                    
+                    // Reset profile image preview to original
+                    profileImagePreview.src = "/uploads/<%= user.profile_image || 'profile.png' %>";
+
+                    // Exit edit mode
+                    editingMode = false;
+                    toggleEditBtn.innerHTML = '<i class="bi bi-pencil-fill d-md-inline"></i><span>Edit</span>';
+                    toggleEditBtn.classList.remove('btn-success');
+                    toggleEditBtn.classList.add('btn-primary');
+                    profilePicOverlay.style.display = 'none';
+
+                    // Disable all form fields
+                    formInputs.forEach(input => {
+                        if (input.type === 'password') {
+                            input.setAttribute('readonly', true);
+                        } else if (input.type !== 'hidden' && input.type !== 'file') {
+                            input.disabled = true;
+                        }
+                    });
+                }
+            });
+        </script>
+<% } %>
