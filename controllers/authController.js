@@ -290,7 +290,7 @@ class AuthController {
 
             await User.storeResetToken(user.employee_id, resetToken, resetTokenExpiry);
 
-            const resetUrl = `https://138.197.92.120/edap/reset-password/${resetToken}`;
+            const resetUrl = `https://138.197.92.120/edap/auth/reset-password/${resetToken}`;
             const emailContent = emailTemplate.resetPasswordTemplate(resetUrl);
             await sendEmail(user.email, 'Reset Your Password', emailContent);
 
