@@ -13,7 +13,9 @@ let db;
 // Function to create a MySQL connection pool over SSH tunnel using async/await for development
 const createTunnelConnection = async () => {
     try {
-        // Configuration constants for better readability and maintainability
+        console.log('Private Key Path:', process.env.SSH_PRIVATE_KEY_PATH); // Check if the path is correct
+        const sshPrivateKey = fs.readFileSync(process.env.SSH_PRIVATE_KEY_PATH); // Load the private key
+
         const tunnelOptions = {
             autoClose: true,
         };
@@ -26,9 +28,9 @@ const createTunnelConnection = async () => {
             host: process.env.SSH_HOST,
             port: 22,
             username: process.env.SSH_USER,
-            privateKey: fs.readFileSync(process.env.SSH_PRIVATE_KEY_PATH), // Load the private key
+            privateKey: sshPrivateKey,
         };
-        
+
         const forwardOptions = {
             srcAddr: '127.0.0.1', // Local address for MySQL connection
             srcPort: 3307, // Local port
@@ -70,9 +72,8 @@ const createTunnelConnection = async () => {
 };
 
 // Function to create a direct MySQL connection for production
-const createDirectConnection = () => {
+const createDirectConnection = async () => {
     try {
-        // MySQL connection configuration for production (direct connection)
         const dbConfig = {
             host: process.env.DB_HOST || '127.0.0.1', // Usually localhost in production
             port: process.env.DB_PORT || 3306,
@@ -84,7 +85,6 @@ const createDirectConnection = () => {
             queueLimit: 0,
         };
 
-        // Create MySQL connection pool
         const pool = mysql.createPool(dbConfig);
         db = pool.promise();
 
@@ -102,7 +102,7 @@ const getDb = async () => {
         console.log('Creating new database connection...');
         if (isProduction) {
             // In production, use direct connection
-            createDirectConnection();
+            await createDirectConnection(); // Add await here
         } else {
             // In development, use SSH tunnel
             await createTunnelConnection();
