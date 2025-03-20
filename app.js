@@ -68,10 +68,10 @@ app.use('*', (req, res, next) => {
     res.locals.isUserSignedIn = req.session.user;
     next();
 });
-app.use('/dashboard', dashboardRoutes);
-app.use('/contact-message', contactMsgRoutes);
-app.use('/auth', authRoutes);
-app.use('/', indexRouter);
+app.use('/edap/dashboard', dashboardRoutes);
+app.use('/edap/contact-message', contactMsgRoutes);
+app.use('/edap/auth', authRoutes);
+app.use('/edap', indexRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

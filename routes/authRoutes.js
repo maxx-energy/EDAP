@@ -8,21 +8,21 @@ const router = Router();
 const validator = new Validator();  // Create an instance of the Validator class
 
 // Register user
-router.post('/edap/register', 
+router.post('/register', 
     validator.validateRegistration(), 
     validator.handleValidationErrors(), 
     AuthController.registerUser
 );
 
 // Login user
-router.post('/edap/login', 
+router.post('/login', 
     validator.validateLogin(), 
     validator.handleValidationErrors(), 
     AuthController.loginUser
 );
 
 // Update profile
-router.post('/edap/update-profile', 
+router.post('/update-profile', 
     AuthMiddleware.hasPermission(2),
     upload.single('profileImage'),
     validator.validateProfileUpdate(), 
@@ -31,32 +31,32 @@ router.post('/edap/update-profile',
 );
 
 // Delete user
-router.post('/edap/delete-user', 
+router.post('/delete-user', 
     AuthMiddleware.hasPermission(6), 
     AuthController.deleteUser
 );
 
 // Logout user
-router.post('/edap/logout', 
+router.post('/logout', 
     AuthController.logoutUser
 );
 
 // Forgot password
-router.post('/edap/forgot-password', 
+router.post('/forgot-password', 
     validator.validateForgotPassword(), 
     validator.handleValidationErrors(), 
     AuthController.forgotPassword
 );
 
 // Reset password
-router.post('/edap/reset-password/:token', 
+router.post('/reset-password/:token', 
     validator.validateResetPassword(), 
     validator.handleValidationErrors(), 
     AuthController.resetPassword
 );
 
 // Confirm email
-router.get('/edap/confirm-email/:token', 
+router.get('/confirm-email/:token', 
     AuthController.confirmEmail
 );
 

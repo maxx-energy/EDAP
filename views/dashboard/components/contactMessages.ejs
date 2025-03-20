@@ -63,7 +63,7 @@
                                         <p><strong>Message Content:</strong> <%= message.message_content %></p>
                                     </div>
                                     <% if (message.status === 'Pending') { %>
-                                        <form action="/contact-message/reply-message/<%= message.id %>" method="POST">
+                                        <form action="/edap/contact-message/reply-message/<%= message.id %>" method="POST">
                                             <input type="text" name="parentMessageId" value="<%= message.id %>" hidden>
                                             <div class="mb-3">
                                                 <label for="replyContent<%= message.id %>" class="form-label">Your Reply</label>
@@ -103,7 +103,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                    <form action="/contact-message/delete-message/<%= message.id %>" method="POST" class="d-inline">
+                                    <form action="/edap/contact-message/delete-message/<%= message.id %>" method="POST" class="d-inline">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <button type="submit" class="btn btn-danger">Delete</button>
                                     </form>
