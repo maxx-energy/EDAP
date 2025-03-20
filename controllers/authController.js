@@ -45,7 +45,7 @@ class AuthController {
             );
 
             // Send confirmation email
-            const confirmUrl = `http://localhost:3000/auth/confirm-email/${confirmationToken}`;
+            const confirmUrl = `https://localhost:3000/auth/confirm-email/${confirmationToken}`;
             const emailContent = emailTemplate.confirmationTemplate(confirmUrl);
             await sendEmail(req.body.email.toLowerCase(), 'Confirm Your Email', emailContent);
 
@@ -283,7 +283,7 @@ class AuthController {
 
             await User.storeResetToken(user.employee_id, resetToken, tokenExpiryUTC);
 
-            const resetUrl = `http://localhost:3000/reset-password/${resetToken}`;
+            const resetUrl = `https://localhost:3000/reset-password/${resetToken}`;
             const emailContent = emailTemplate.resetPasswordTemplate(resetUrl);
 
             await sendEmail(user.email, 'Password Reset Request', emailContent);

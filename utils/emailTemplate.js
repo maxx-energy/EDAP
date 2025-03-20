@@ -89,7 +89,7 @@ export const replyMessageTemplate = (fullName, userMessage, adminReply) => `
                     <blockquote class="blockquote mb-0">${adminReply}</blockquote>
                 </div>
 
-                <p>If you have any further questions, feel free to contact us thorugh <a href="http://localhost:3000/contact" class="btn btn-success">Contact Support</a>.</p>
+                <p>If you have any further questions, feel free to contact us thorugh <a href="https://localhost:3000/contact" class="btn btn-success">Contact Support</a>.</p>
             </div>
             <div class="card-footer text-center text-muted">
                 &copy; 2025 EDAP. All rights reserved.
