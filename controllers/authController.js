@@ -45,7 +45,7 @@ class AuthController {
             );
 
             // Send confirmation email
-            const confirmUrl = `https://localhost:3000/edap/auth/confirm-email/${confirmationToken}`;
+            const confirmUrl = `https://138.197.92.120/edap/auth/confirm-email/${confirmationToken}`;
             const emailContent = emailTemplate.confirmationTemplate(confirmUrl);
             await sendEmail(req.body.email.toLowerCase(), 'Confirm Your Email', emailContent);
 
@@ -288,9 +288,9 @@ class AuthController {
                 .slice(0, 19)
                 .replace('T', ' ');
 
-            await User.updateResetPasswordToken(user.employee_id, resetToken, resetTokenExpiry);
+            await User.storeResetToken(user.employee_id, resetToken, resetTokenExpiry);
 
-            const resetUrl = `https://localhost:3000/edap/reset-password/${resetToken}`;
+            const resetUrl = `https://138.197.92.120/edap/reset-password/${resetToken}`;
             const emailContent = emailTemplate.resetPasswordTemplate(resetUrl);
             await sendEmail(user.email, 'Reset Your Password', emailContent);
 
