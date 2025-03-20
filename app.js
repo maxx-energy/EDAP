@@ -1,4 +1,7 @@
 import createError from 'http-errors';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 import express, { json, urlencoded } from 'express';
 import cookieParser from 'cookie-parser';
 import methodOverride from 'method-override';
@@ -29,6 +32,8 @@ const checkConnection = async () => {
 checkConnection(); // Check the connection
 
 const app = express();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // view engine setup
 app.set('view engine', 'ejs');
@@ -38,7 +43,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(express.static('public'));
+app.use('/edap', express.static(path.join(__dirname, 'public')));
 app.use(
     methodOverride('_method', {
         methods: ['POST', 'GET'],
