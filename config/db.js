@@ -12,6 +12,8 @@ let db;
 
 // Function to create a MySQL connection pool over SSH tunnel using async/await for development
 const createTunnelConnection = async () => {
+    if (isProduction) return; // Skip SSH tunnel creation in production
+
     try {
         console.log('Private Key Path:', process.env.SSH_PRIVATE_KEY_PATH); // Check if the path is correct
         const sshPrivateKey = fs.readFileSync(process.env.SSH_PRIVATE_KEY_PATH); // Load the private key
