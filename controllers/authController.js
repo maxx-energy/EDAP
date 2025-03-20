@@ -45,7 +45,7 @@ class AuthController {
             );
 
             // Send confirmation email
-            const confirmUrl = `https://138.197.92.120/edap/auth/confirm-email/${confirmationToken}`;
+            const confirmUrl = `http://138.197.92.120/edap/auth/confirm-email/${confirmationToken}`;
             const emailContent = emailTemplate.confirmationTemplate(confirmUrl);
             await sendEmail(req.body.email.toLowerCase(), 'Confirm Your Email', emailContent);
 
@@ -290,7 +290,7 @@ class AuthController {
 
             await User.storeResetToken(user.employee_id, resetToken, resetTokenExpiry);
 
-            const resetUrl = `https://138.197.92.120/edap/auth/reset-password/${resetToken}`;
+            const resetUrl = `http://138.197.92.120/edap/reset-password/${resetToken}`;
             const emailContent = emailTemplate.resetPasswordTemplate(resetUrl);
             await sendEmail(user.email, 'Reset Your Password', emailContent);
 
@@ -314,7 +314,7 @@ class AuthController {
 
             if (!user) {
                 req.flash('error', 'Invalid or expired password reset link.');
-                return res.status(400).redirect('/edap/reset-password');
+                return res.status(400).redirect('/edap/forgot-password');
             }
 
             const hashedPassword = await bcrypt.hash(req.body.password, 10);
