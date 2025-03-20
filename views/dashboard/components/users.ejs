@@ -160,32 +160,32 @@
                 <nav aria-label="Page navigation">
                     <ul class="pagination justify-content-center">
                         <li class="page-item <%= current === 1 ? 'disabled' : '' %>">
-                            <a class="page-link" href="/dashboard/users/?page=1">
+                            <a class="page-link" href="/edap/dashboard/users/?page=1">
                                 <i class="fas fa-angle-double-left"></i>
                             </a>
                         </li>
                         <li class="page-item <%= current === 1 ? 'disabled' : '' %>">
                             <a class="page-link"
-                                href="/dashboard/users/?page=<%= current > 1 ? current - 1 : 1 %>">
+                                href="/edap/dashboard/users/?page=<%= current > 1 ? current - 1 : 1 %>">
                                 <i class="fas fa-angle-left"></i>
                             </a>
                         </li>
                         <% for (let i=Math.max(1, current - 1); i <=Math.min(totalPages, current + 1); i++) { %>
                             <li class="page-item <%= i === current ? 'active' : '' %>">
-                                <a class="page-link" href="/dashboard/users/?page=<%= i %>">
+                                <a class="page-link" href="/edap/dashboard/users/?page=<%= i %>">
                                     <%= i %>
                                 </a>
                             </li>
                         <% } %>
                         <li class="page-item <%= current === totalPages ? 'disabled' : '' %>">
                             <a class="page-link"
-                                href="/dashboard/users/?page=<%= current + 1 %>">
+                                href="/edap/dashboard/users/?page=<%= current + 1 %>">
                                 <i class="fas fa-angle-right"></i>
                             </a>
                         </li>
                         <li class="page-item <%= current === totalPages ? 'disabled' : '' %>">
                             <a class="page-link"
-                                href="/dashboard/users/?page=<%= totalPages %>">
+                                href="/edap/dashboard/users/?page=<%= totalPages %>">
                                 <i class="fas fa-angle-double-right"></i>
                             </a>
                         </li>

@@ -3,7 +3,6 @@ import fs from 'fs';
 import moment from 'moment';
 import User from '../models/usersModel.js';
 import ContactMessage from '../models/contactMsgModel.js';
-import { log } from 'console';
 
 /**
  * Controller class responsible for handling dashboard-related routes
@@ -111,8 +110,8 @@ class DashboardController {
             ) {
                 user.profile_image = 'profile.png';
             }
-            // Generate the complete URL for the profile image
-            user.profile_image_url = `/uploads/${user.profile_image}`;
+            // Generate the complete URL for the profile image (ensure it has '/edap' path)
+            user.profile_image_url = `/edap/uploads/${user.profile_image}`;
 
             res.status(200).render('dashboard/components/account', {
                 user,

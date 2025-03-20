@@ -22,7 +22,7 @@ class ContactController {
             await ContactMessage.createMessage(userId, fullName, email, message);
 
             req.flash('success', 'Message sent successfully.');
-            res.status(200).redirect('/contact');
+            res.status(200).redirect('/edap/contact'); // Updated redirect to include /edap
         } catch (error) {
             console.error('Error saving contact message:', error);
             next(error); // Pass error to the error-handling middleware
@@ -63,7 +63,7 @@ class ContactController {
                 true // Setting `true` means it's an HTML email
             );
 
-            res.redirect('/dashboard/contact-messages');
+            res.redirect('/edap/dashboard/contact-messages'); // Updated redirect to include /edap
         } catch (error) {
             console.error('Error replying to message:', error);
             next(error); // Pass error to the error-handling middleware
@@ -83,7 +83,7 @@ class ContactController {
             await ContactMessage.deleteMessage(messageID);
 
             req.flash('success', 'Message deleted successfully.');
-            res.redirect('/dashboard/contact-messages');
+            res.redirect('/edap/dashboard/contact-messages'); // Updated redirect to include /edap
         } catch (error) {
             console.error('Error deleting message:', error);
             next(error); // Pass error to the error-handling middleware

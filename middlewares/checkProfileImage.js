@@ -21,7 +21,7 @@ export const checkProfileImage = async (req, res, next) => {
             }
 
             // Set the profile image URL for use in views
-            user.profile_image_url = `/uploads/${profileImage}`;
+            user.profile_image_url = `/edap/uploads/${profileImage}`;  // Updated path here
 
             // Store user data in locals for all views
             res.locals.user = user;

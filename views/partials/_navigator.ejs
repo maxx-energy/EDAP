@@ -3,7 +3,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="/">
+            <a class="navbar-brand" href="/edap/">
                 <img src="/edap/images/MAXX-Energy-Logo-1B.png" alt="Maxx Energy Logo" width="120">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -12,26 +12,26 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link <%= page_name === 'index' && 'active' %>" href="/">Home</a>
+                        <a class="nav-link <%= page_name === 'index' && 'active' %>" href="/edap">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <%= page_name === 'about' && 'active' %>" href="/about">About</a>
+                        <a class="nav-link <%= page_name === 'about' && 'active' %>" href="/edap/about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <%= page_name === 'services' && 'active' %>" href="/service">Services</a>
+                        <a class="nav-link <%= page_name === 'services' && 'active' %>" href="/edap/service">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <%= page_name === 'contact' && 'active' %>" href="/contact">Contact</a>
+                        <a class="nav-link <%= page_name === 'contact' && 'active' %>" href="/edap/contact">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <%= page_name === 'faq' && 'active' %>" href="/faq">FAQ</a>
+                        <a class="nav-link <%= page_name === 'faq' && 'active' %>" href="/edap/faq">FAQ</a>
                     </li>
                 </ul>
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" name="query" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-primary text-white" type="submit">Search</button>
                 </form>
-                <a href="/login" class="btn btn-outline-primary text-white ms-2 <%= page_name === 'login' && 'active' %>">Sign In/Up</a>
+                <a href="/edap/login" class="btn btn-outline-primary text-white ms-2 <%= page_name === 'login' && 'active' %>">Sign In/Up</a>
             </div>
         </div>
     </nav>

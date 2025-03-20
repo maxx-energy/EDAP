@@ -8,21 +8,21 @@ const validator = new Validator(); // Create an instance of the Validator class
 
 // Don't forget to add the validation middleware
 router.post(
-    '/',
+    '/edap/',
     validator.validateContactForm(),
     validator.handleValidationErrors(),
     ContactController.saveContactMessage
 );
 
 router.post(
-    '/reply-message/:messageID',
+    '/edap/reply-message/:messageID',
     validator.validateReplyForm(),
     validator.handleValidationErrors(),
     ContactController.replyToMessage
 );
 
 router.post(
-    '/delete-message/:messageID',
+    '/edap/delete-message/:messageID',
     AuthMiddleware.hasPermission(7),
     ContactController.deleteMessage
 );

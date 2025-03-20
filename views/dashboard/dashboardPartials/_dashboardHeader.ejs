@@ -19,17 +19,17 @@
 
     <!-- Sidebar -->
     <div class="sidebar d-flex flex-column" id="sidebar">
-        <a class="navbar-brand" href="/dashboard">
+        <a class="navbar-brand" href="/edap/dashboard">
             <div class="text-center">
-                <img src="/images/MAXX-Energy-Logo-1B.png" alt="Maxx Energy Logo"
+                <img src="/edap/images/MAXX-Energy-Logo-1B.png" alt="Maxx Energy Logo"
                     style="height: 50px; max-width: 100%;">
             </div>
         </a>
-        <a href="/dashboard" class="<%= (isUserSignedIn.permissions == 7) ? '' : 'd-none' %>">Dashboard</a>
-        <a href="/dashboard/users" class="<%= (isUserSignedIn.permissions >= 6) ? '' : 'd-none' %>">Users</a>
-        <a href="/dashboard/contact-messages" class="<%= (isUserSignedIn.permissions >= 6) ? '' : 'd-none' %>">Customer
+        <a href="/edap/dashboard" class="<%= (isUserSignedIn.permissions == 7) ? '' : 'd-none' %>">Dashboard</a>
+        <a href="/edap/dashboard/users" class="<%= (isUserSignedIn.permissions >= 6) ? '' : 'd-none' %>">Users</a>
+        <a href="/edap/dashboard/contact-messages" class="<%= (isUserSignedIn.permissions >= 6) ? '' : 'd-none' %>">Customer
             Inquiries</a>
-        <a href="/dashboard/account">Account</a>
+        <a href="/edap/dashboard/account">Account</a>
     </div>
     <!-- Main Content -->
     <div class="content" id="mainContent">
@@ -41,7 +41,7 @@
             </form>
             <div class="d-flex align-items-center">
                 <a href="#" class="me-3 text-dark"><i class="fa fa-bell"></i></a>
-                <a href="/dashboard/account" class="me-2" style="width: 40px; height: 40px;">
+                <a href="/edap/dashboard/account" class="me-2" style="width: 40px; height: 40px;">
                     <img src="<%= user.profile_image_url %>" class="rounded-circle img-fluid" alt="Profile"
                         style="width: 100%; height: 100%; object-fit: cover;">
                 </a>
