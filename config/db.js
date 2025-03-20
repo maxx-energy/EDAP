@@ -1,23 +1,27 @@
-import fs from 'fs';
 import mysql from 'mysql2';
 import 'dotenv/config';
 import { createTunnel } from 'tunnel-ssh';
+
 
 // Configuration constants for better readability and maintainability
 const tunnelOptions = {
     autoClose: true,
 };
 
+
 const serverOptions = {
     port: 3307, // Local port for MySQL connection through tunnel
 };
 
+
 const sshOptions = {
     host: process.env.SSH_HOST,
-    port: 22,
+    port: 22, // Default SSH port
     username: process.env.SSH_USER,
-    privateKey: fs.readFileSync(process.env.SSH_PRIVATE_KEY_PATH), // Load the private key
+    password: process.env.SSH_PASSWORD,
 };
+
+
 const forwardOptions = {
     srcAddr: '127.0.0.1', // Local address for MySQL connection
     srcPort: 3307, // Local port
@@ -25,8 +29,10 @@ const forwardOptions = {
     dstPort: 3306, // Remote MySQL port
 };
 
+
 // Connection pool variable
 let db;
+
 
 // Function to create a MySQL connection pool over SSH tunnel using async/await
 const createConnection = async () => {
@@ -40,6 +46,7 @@ const createConnection = async () => {
         );
         console.log('SSH Tunnel established successfully');
 
+
         // MySQL connection configuration
         const dbConfig = {
             host: '127.0.0.1', // Local end of the tunnel
@@ -52,9 +59,11 @@ const createConnection = async () => {
             queueLimit: 0,
         };
 
+
         // Create MySQL connection pool
         const pool = mysql.createPool(dbConfig);
         db = pool.promise();
+
 
         console.log('MySQL pool created successfully');
         return db;
@@ -64,6 +73,7 @@ const createConnection = async () => {
     }
 };
 
+
 // Function to get the database connection (will create it if it doesn't exist)
 const getDb = async () => {
     if (!db) {
@@ -72,6 +82,7 @@ const getDb = async () => {
     }
     return db;
 };
+
 
 // Export the connection getter function
 export default getDb;
