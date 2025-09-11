@@ -125,3 +125,8 @@ This project is licensed under the MIT License. Feel free to modify and use it a
 ---
 
 For any inquiries, feel free to reach out!
+
+![Home Page](./showcase/ss-1.png)
+![About Page](./showcase/ss-2.png)
+![Services Page](./showcase/ss-3.png)
+![Log In Page](./showcase/ss-4.png)
