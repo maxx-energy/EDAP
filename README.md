@@ -117,11 +117,6 @@ Ensure you have the following installed on your system:
 ## Contributors
 
 This project was developed by **Esmail Sarwari**, **Cece Nguyen**, **Usayd Shaikh**, **Jerry Alatorre** and the **Data Team** as part of a simulated internship program at Maxx Potential through YearUp United.
-
-## License
-
-This project is licensed under the MIT License. Feel free to modify and use it as needed.
-
 ---
 
 For any inquiries, feel free to reach out!
